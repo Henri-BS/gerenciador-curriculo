@@ -14,6 +14,8 @@ public class Experience {
     @Column(name = "job_title")
     private String jobTitle;
     private String company;
+
+    @Column(name = "working_day")
     private String workingDay;
 
     @Column(name = "start_date")

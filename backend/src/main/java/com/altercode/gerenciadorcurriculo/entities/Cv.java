@@ -1,6 +1,7 @@
 package com.altercode.gerenciadorcurriculo.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,6 @@ public class Cv {
     @Column(name = "cv_id")
     private Long id;
     private String name;
-
     @Column(name= "description", columnDefinition = "TEXT")
     private String description;
     private String image;
@@ -20,16 +20,12 @@ public class Cv {
     private String location;
     private String email;
 
-    /*
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    private List<Education> educationList;
+    private List<Education> educationList = new ArrayList<>();
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    private List<Experience> experiences;
+    private List<Experience> experiences = new ArrayList<>();
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    //private List<Skill> skills;
-    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    //private List<Additional> additional;
-*/
+    private List<Section> sections = new ArrayList<>();
 
     public Cv() {
     }
@@ -100,5 +96,15 @@ public class Cv {
         this.email = email;
     }
 
+    public List<Education> getEducationList() {
+        return educationList;
+    }
 
+    public List<Experience> getExperiences() {
+        return experiences;
+    }
+
+    public List<Section> getSections() {
+        return sections;
+    }
 }
