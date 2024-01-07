@@ -1,18 +1,23 @@
 package com.altercode.gerenciadorcurriculo.dto;
 
 import com.altercode.gerenciadorcurriculo.entities.Section;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SectionDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private final Long id;
-    private final String title;
-    private final Integer itemQuantity;
-    private final Long cvId;
+    private  Long id;
+    private  String title;
+    private  Integer itemQuantity;
+    private  Long cvId;
+
+    public SectionDto() {
+    }
 
     public SectionDto(Section entity) {
         id = entity.getId();

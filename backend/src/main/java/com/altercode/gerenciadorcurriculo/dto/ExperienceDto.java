@@ -2,22 +2,26 @@ package com.altercode.gerenciadorcurriculo.dto;
 
 
 import com.altercode.gerenciadorcurriculo.entities.Experience;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExperienceDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private final Long id;
-    private final String jobTitle;
-    private final String company;
-    private final String workingDay;
-    private final LocalDate startDate;
-    private final LocalDate endDate;
-    private final Long cvId;
+    private Long id;
+    private String jobTitle;
+    private String company;
+    private String workingDay;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private Long cvId;
 
+    public ExperienceDto() {
+    }
 
     public ExperienceDto(Experience entity) {
         id = entity.getId();

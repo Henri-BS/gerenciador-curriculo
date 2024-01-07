@@ -1,10 +1,12 @@
 package com.altercode.gerenciadorcurriculo.dto;
 
 import com.altercode.gerenciadorcurriculo.entities.Cv;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CvDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

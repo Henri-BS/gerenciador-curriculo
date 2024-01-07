@@ -1,7 +1,6 @@
 package com.altercode.gerenciadorcurriculo.controllers;
 
 import com.altercode.gerenciadorcurriculo.dto.ItemDto;
-import com.altercode.gerenciadorcurriculo.dto.SectionDto;
 import com.altercode.gerenciadorcurriculo.entities.Section;
 import com.altercode.gerenciadorcurriculo.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;

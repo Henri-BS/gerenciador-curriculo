@@ -47,8 +47,8 @@ public class EducationService {
     }
 
     public EducationDto updateEducation(EducationDto dto) {
-        Education edit = new Education();
-        edit.setId(dto.getId());
+        Education edit = educationRepository.findById(dto.getId()).orElseThrow();
+        edit.setId(edit.getId());
         edit.setCourse(dto.getCourse());
         edit.setInstitution(dto.getInstitution());
         edit.setStatus(dto.getStatus());

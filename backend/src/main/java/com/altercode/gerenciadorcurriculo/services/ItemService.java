@@ -48,8 +48,8 @@ public class ItemService {
     }
 
     public ItemDto updateItem(ItemDto dto) {
-        Item edit = new Item();
-        edit.setId(dto.getId());
+        Item edit = itemRepository.findById(dto.getId()).orElseThrow();
+        edit.setId(edit.getId());
         edit.setName(dto.getName());
         edit.setDescription(dto.getDescription());
         edit.setStartDate(dto.getStartDate());

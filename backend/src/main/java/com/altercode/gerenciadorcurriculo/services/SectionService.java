@@ -45,8 +45,8 @@ public class SectionService {
     }
 
     public SectionDto updateSection(SectionDto dto) {
-        Section edit = new Section();
-        edit.setId(dto.getId());
+        Section edit = sectionRepository.findById(dto.getId()).orElseThrow();
+        edit.setId(edit.getId());
         edit.setTitle(dto.getTitle());
         edit.setItemQuantity(dto.getItemQuantity());
         return new SectionDto(sectionRepository.save(edit));

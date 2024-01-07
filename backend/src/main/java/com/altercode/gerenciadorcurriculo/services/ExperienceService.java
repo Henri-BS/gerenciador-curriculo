@@ -46,8 +46,8 @@ public class ExperienceService {
     }
 
     public ExperienceDto updateExperience(ExperienceDto dto) {
-        Experience edit = new Experience();
-        edit.setId(dto.getId());
+        Experience edit = experienceRepository.findById(dto.getId()).orElseThrow();
+        edit.setId(edit.getId());
         edit.setJobTitle(dto.getJobTitle());
         edit.setCompany(dto.getCompany());
         edit.setWorkingDay(dto.getWorkingDay());

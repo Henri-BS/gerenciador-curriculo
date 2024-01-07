@@ -21,11 +21,11 @@ public class Cv {
     private String email;
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    private List<Education> educationList = new ArrayList<>();
+    private final List<Education> educationList = new ArrayList<>();
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    private List<Experience> experiences = new ArrayList<>();
+    private final List<Experience> experiences = new ArrayList<>();
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
-    private List<Section> sections = new ArrayList<>();
+    private final List<Section> sections = new ArrayList<>();
 
     public Cv() {
     }

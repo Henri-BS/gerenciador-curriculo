@@ -19,7 +19,7 @@ public class Section {
     private Cv cv;
 
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
-    private List<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
 
     public Cv getCv() {
         return cv;
@@ -30,6 +30,13 @@ public class Section {
     }
 
     public Section() {
+    }
+
+    public Section(Long id, String title, Integer itemQuantity, Cv cv) {
+        this.id = id;
+        this.title = title;
+        this.itemQuantity = itemQuantity;
+        this.cv = cv;
     }
 
     public Long getId() {

@@ -1,20 +1,25 @@
 package com.altercode.gerenciadorcurriculo.dto;
 
 import com.altercode.gerenciadorcurriculo.entities.Item;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private final Long id;
-    private final String name;
-    private final String description;
-    private final LocalDate startDate;
-    private final LocalDate endDate;
-    private final Long sectionId;
+    private Long id;
+    private String name;
+    private String description;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private Long sectionId;
+
+    public ItemDto() {
+    }
 
     public ItemDto(Item entity) {
         id = entity.getId();

@@ -1,24 +1,28 @@
 package com.altercode.gerenciadorcurriculo.dto;
 
 import com.altercode.gerenciadorcurriculo.entities.Education;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EducationDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private final Long id;
-    private final String course;
-    private final String institution;
-    private final String status;
-    private final String academicDegree;
-    private final LocalDate startDate;
-    private final LocalDate endDate;
-    private final Long cvId;
+    private Long id;
+    private String course;
+    private String institution;
+    private String status;
+    private String academicDegree;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private Long cvId;
+
+    public EducationDto() {
+    }
 
     public EducationDto(Education entity) {
         id = entity.getId();

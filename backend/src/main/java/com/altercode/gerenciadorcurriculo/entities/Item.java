@@ -24,6 +24,18 @@ public class Item {
     @JoinColumn(name = "section_id")
     private Section section;
 
+    public Item() {
+    }
+
+    public Item(Long id, String name, String description, LocalDate startDate, LocalDate endDate, Section section) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.section = section;
+    }
+
     public Long getId() {
         return id;
     }

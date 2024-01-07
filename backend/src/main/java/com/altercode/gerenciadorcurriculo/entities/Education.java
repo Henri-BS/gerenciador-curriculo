@@ -28,6 +28,20 @@ public class Education {
     @JoinColumn(name = "cv_id")
     private Cv cv;
 
+    public Education() {
+    }
+
+    public Education(Long id, String course, String institution, String status, String academicDegree, LocalDate startDate, LocalDate endDate, Cv cv) {
+        this.id = id;
+        this.course = course;
+        this.institution = institution;
+        this.status = status;
+        this.academicDegree = academicDegree;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.cv = cv;
+    }
+
     public Long getId() {
         return id;
     }

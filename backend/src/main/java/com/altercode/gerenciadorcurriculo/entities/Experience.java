@@ -32,6 +32,15 @@ public class Experience {
     public Experience() {
     }
 
+    public Experience(Long id, String jobTitle, String company, String workingDay, LocalDate startDate, LocalDate endDate, Cv cv) {
+        this.id = id;
+        this.jobTitle = jobTitle;
+        this.company = company;
+        this.workingDay = workingDay;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.cv = cv;
+    }
 
     public Long getId() {
         return id;
