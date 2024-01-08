@@ -18,6 +18,12 @@ public class CvService {
 
     public Page<CvDto> findAllCvs(String name, Pageable pageable) {
         Page<Cv> find = cvRepository.findAllCvs(name, pageable);
+        for (Cv cv : find) {
+            if (cv.getImage() == null) {
+                cv.setImage("https://cdn1.iconfinder.com/data/icons/basic-ui-element-2-2-line/512/Basic_UI_Elements_-_2.1_-_line-11-256.png");
+                cvRepository.save(cv);
+            }
+        }
         return find.map(CvDto::new);
     }
 

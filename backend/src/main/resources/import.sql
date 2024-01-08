@@ -1,4 +1,26 @@
-INSERT INTO tb_cv (name, phone, email, location) VALUES ('Nicolas', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Nicolas Jones', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/fitness-trainer-asian-male-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Robert Wood', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/eye-glasses-asian-male-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Kenya Cervantes', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-02/64/black-woman-hair-style-2-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Fernando Damasceno', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-02/64/black-dreadlock-male-tee-shirt-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Lucas Alvarez', 'https://cdn0.iconfinder.com/data/icons/diversity-v2-0-volume-08/64/hipsters-white-male-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Mariana Carvalho', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-06/64/tank-toop-white-female-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Rosângela Alves', 'https://cdn0.iconfinder.com/data/icons/diversity-v2-0-volume-08/64/woman-round-glasses-hair-bun-black-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Amanda Reiter', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-03/64/blacksmith-white-female-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Vanessa Winter', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-03/64/business-casual-white-female-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Ramón Castro', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-03/64/blacksmith-asian-male-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Diana Diamond', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/wavy-hair-woman-african-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Olivia Olsen', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/flower-girl-6-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Isla Ramos', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/flower-girl-6-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, image, phone, email, location) VALUES ('Benjamin Barbosa', 'https://cdn0.iconfinder.com/data/icons/diversity-v2-0-volume-08/64/sweater-man-black-512.png', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Ethan Alves', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Valentin Fernandes', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Arthur Borges', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Thomas Ribeiro', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Alessio Ferreira', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Beatrice Scott', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Eleonora Montanari', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+INSERT INTO tb_cv (name, phone, email, location) VALUES ('Isabel Silvestri', '(99)91234-5678', 'nicolas@gmail.com', 'Campinas - SP');
+
 INSERT INTO tb_education (cv_id, course, institution, status, academic_degree, start_date, end_date) VALUES (1, 'ADS', 'Universidade X', 'cursando', 'graduação', '2023-01-01', '2026-12-31');
 INSERT INTO tb_experience (cv_id, job_title, company, working_day, start_date) VALUES (1, 'Desenvolvedor Java Jr', 'Ampli', 'Integral', '2024-01-01');
 INSERT INTO tb_section (cv_id, title) VALUES (1, 'Skills');

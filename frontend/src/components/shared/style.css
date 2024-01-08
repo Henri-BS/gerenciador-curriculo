@@ -11,7 +11,7 @@
     margin: 0px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 22px 0 rgba(0, 0, 0.39, 0.37);
+    box-shadow: 0 4px 22px 0 rgba(66, 5, 107, 0.37);
 }
 
 .navbar-menu {
@@ -32,7 +32,7 @@
 .navbar-link {
     color: var(--dark-seco);
     text-decoration: none;
-    padding: 8px 30px;
+    padding: 10px 50px;
     transition: all 0.3s ease-in-out;
     border: 2px solid transparent;
     border-radius: 10px;
@@ -40,7 +40,7 @@
 
 .navbar-link:hover {
     color: var(--dark-prim);
-    border: 2px solid var(--green-prim);
+    border: 2px solid rgb(98, 160, 5);
 }
 
 @media screen and (max-width: 650px) {
