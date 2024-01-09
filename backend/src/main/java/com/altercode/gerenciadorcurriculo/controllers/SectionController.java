@@ -17,8 +17,8 @@ public class SectionController {
     @Autowired
     private SectionService sectionService;
 
-    @GetMapping("/page")
-    public ResponseEntity<Page<SectionDto>> findSectionByCv(Cv cv, Pageable pageable) {
+    @GetMapping("/page/{cv}")
+    public ResponseEntity<Page<SectionDto>> findSectionByCv(@PathVariable Cv cv, Pageable pageable) {
         Page<SectionDto> page = sectionService.findSectionByCv(cv, pageable);
         return ResponseEntity.ok(page);
     }

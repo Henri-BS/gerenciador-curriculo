@@ -17,8 +17,8 @@ public class EducationController {
     @Autowired
     private EducationService educationService;
 
-    @GetMapping("/page")
-    public ResponseEntity<Page<EducationDto>> findEducationByCv(Cv cv, Pageable pageable) {
+    @GetMapping("/page/{cv}")
+    public ResponseEntity<Page<EducationDto>> findEducationByCv(@PathVariable Cv cv, Pageable pageable) {
         Page<EducationDto> page = educationService.findEducationByCv(cv, pageable);
         return ResponseEntity.ok(page);
     }

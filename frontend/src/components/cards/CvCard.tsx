@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { Cv, CvProps, Props } from "types/CvTypes";
+import { Cv, CvProps, Props } from "types/CvType";
 import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -11,7 +11,7 @@ export function CvCard({cv}: CvProps){
 
     return (
         <>
-            <Link to={`/cv/${cv.id}`} >
+            <Link to={`/cv/${cv.id}`} className="text-decoration-none">
                 <div className="card-md-container shadow-box">
                     <nav className="card-md-title">
                         <h3>{cv.name}</h3>
@@ -74,7 +74,6 @@ export function CvCard({cv}: CvProps){
 export function CvProfileCard({id: cvId }: Props) {
 
     const navigate = useNavigate();
-    const params = useParams();
 
     const [client, setClient] = useState<Cv>();
     useEffect(() => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CvCard } from "components/cards/CvCard";
 import { useEffect, useState } from "react";
-import { CvPage } from "types/CvTypes";
+import { CvPage } from "types/CvType";
 import { BASE_URL } from "utils/requests";
 
 

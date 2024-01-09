@@ -17,8 +17,8 @@ public class ExperienceController {
     @Autowired
     private ExperienceService experienceService;
 
-    @GetMapping("/page")
-    public ResponseEntity<Page<ExperienceDto>> findExperienceByCv(Cv cv, Pageable pageable) {
+    @GetMapping("/page/{cv}")
+    public ResponseEntity<Page<ExperienceDto>> findExperienceByCv(@PathVariable Cv cv, Pageable pageable) {
         Page<ExperienceDto> page = experienceService.findExperienceByCv(cv, pageable);
         return ResponseEntity.ok(page);
     }

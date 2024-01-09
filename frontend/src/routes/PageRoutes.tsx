@@ -6,7 +6,6 @@ import { CvProfile } from "pages/CvProfile";
 function PageRoutes() {
     return (
         <BrowserRouter>
-            <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/cv" >
