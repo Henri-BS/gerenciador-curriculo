@@ -69,3 +69,11 @@
     padding: 8px;
     margin: 0;
 }
+
+.card-lg-img {
+    height: 160px;
+    float: right;
+    border: 2px solid;
+    border-radius: 30px;
+    width: 160px;
+}

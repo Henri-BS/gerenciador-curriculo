@@ -14,10 +14,23 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
+fieldset {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background-color: transparent;
+}
+
+legend {
+    background-color: transparent;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
 .shadow-box {
     transition: all 0.2s ease-in;
     cursor: pointer;
-    color: var(--dark-prim);
+    color: black;
     border: 2px solid #b8b6b6;
 }
 

@@ -17,8 +17,8 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    @GetMapping("/page")
-    public ResponseEntity<Page<ItemDto>> findItemBySection(Section section, Pageable pageable) {
+    @GetMapping("/page/{section}")
+    public ResponseEntity<Page<ItemDto>> findItemBySection(@PathVariable Section section, Pageable pageable) {
         Page<ItemDto> page = itemService.findItemBySection(section, pageable);
         return ResponseEntity.ok(page);
     }

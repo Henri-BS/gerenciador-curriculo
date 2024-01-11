@@ -19,10 +19,9 @@ export function EducationListByCv({ id: cvId }: Props) {
 
     return (
         <>
-            <fieldset className="container">
-                <div className="header-container">
+            <fieldset>
                     <legend><h2>Educação</h2></legend>
-                </div>
+
                 {educationPage.empty ? <h5>Nenhum Item Adicionado</h5> :
                 <div className="row">
                     {educationPage.content?.map(education => (

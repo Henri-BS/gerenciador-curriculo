@@ -20,11 +20,8 @@ export function ExperienceListByCv({ id: cvId }: Props) {
 
     return (
         <>
-            <fieldset className="container">
-                <hr />
-                <div className="header-container">
+            <fieldset>
                     <legend><h2>Experiência</h2></legend>
-                </div>
                 {experiencePage.empty ? <h5>Nenhum Item Adicionado</h5> :
                     <div className="row">
                         {experiencePage.content?.map(experience => (

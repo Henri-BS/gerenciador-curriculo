@@ -6,7 +6,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 
-export function CvCard({cv}: CvProps){
+export function CvCard({ cv }: CvProps) {
     const params = useParams();
 
     return (
@@ -15,17 +15,17 @@ export function CvCard({cv}: CvProps){
                 <div className="card-md-container shadow-box">
                     <nav className="card-md-title">
                         <h3>{cv.name}</h3>
-                        <img src={cv.image} alt="cv-image"/>
+                        <img src={cv.image} alt="cv-image" />
                     </nav>
                     <ul className="card-md-list">
-                        <li className="card-md-item ">Celular: 
-                        <p className="card-md-content">{cv.phone}</p>
+                        <li className="card-md-item ">Celular:
+                            <p className="card-md-content">{cv.phone}</p>
                         </li>
-                        <li className="card-md-item ">Email: 
-                        <p className="card-md-content">{cv.email}</p>
+                        <li className="card-md-item ">Email:
+                            <p className="card-md-content">{cv.email}</p>
                         </li>
-                        <li className="card-md-item">Localidade: 
-                        <p className="card-md-content">{cv.location}</p>
+                        <li className="card-md-item">Localidade:
+                            <p className="card-md-content">{cv.location}</p>
                         </li>
                     </ul>
                 </div>
@@ -71,11 +71,11 @@ export function CvCard({cv}: CvProps){
     );
 }
 
-export function CvProfileCard({id: cvId }: Props) {
+export function CvProfileCard({ id: cvId }: Props) {
 
     const navigate = useNavigate();
 
-    const [client, setClient] = useState<Cv>();
+    const [cv, setClient] = useState<Cv>();
     useEffect(() => {
         axios.get(`${BASE_URL}/cv/${cvId}`)
             .then((response) => {
@@ -103,20 +103,23 @@ export function CvProfileCard({id: cvId }: Props) {
             <hr />
 
             <nav className="card-lg-container">
-                <li className="card-lg-item">Nome:
-                    <p className="card-lg-content">{client?.name}</p>
+                <img className="card-lg-img" src={cv?.image} />
+                <li className="card-lg-item">
+                    <h1 >{cv?.name}</h1>
                 </li>
-                <li className="card-lg-item">Endereço:
-                    <p className="card-lg-content">{client?.phone}</p>
+                <li className="card-lg-item"><i className="fa fa-phone" />
+                    <p className="card-lg-content">{cv?.phone}</p>
                 </li>
-                <li className="card-lg-item">Email:
-                    <p className="card-lg-content">{client?.email}</p>
+                <li className="card-lg-item"><i className="fa fa-envelope" />
+                    <p className="card-lg-content">{cv?.email}</p>
                 </li>
-                <li className="card-lg-item">Localidade:
-                    <p className="card-lg-content">{client?.location}</p>
+                <li className="card-lg-item"> <i className="fa fa-map-marker" />
+                    <p className="card-lg-content">{cv?.location}</p>
                 </li>
             </nav>
 
+            <span>{cv?.description}</span>
+            <hr />
             <div className="modal fade" id="cvEditModal" role={"dialog"}>
                 <div className="modal-dialog" role={"document"}>
                     <div className="modal-content">
