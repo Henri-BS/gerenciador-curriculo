@@ -57,31 +57,81 @@ legend {
 }
 
 
+/*modal*/
+
+.text-close {
+    border: 0;
+    background-color: transparent;
+    color: var(--white-prim);
+    font-size: large;
+    transition: all 0.2s ease-in-out;
+}
+
+.text-close:hover {
+    color: var(--white-seco);
+    text-decoration: underline;
+}
+
+.modal-content {
+    max-height: 580px;
+    font-size: small;
+    border-radius: 8px;
+    background-color: rgb(74, 74, 94);
+    color: var(--white-prim);
+}
+
+.modal-header span {
+    color: var(--white-prim);
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    padding: 8px;
+}
+
+.close {
+    background-color: transparent;
+    border-radius: 100%;
+    border: none;
+    transition: all 0.2s ease-in;
+    font-size: large;
+}
+
+.close:hover {
+    background-color: #cccccc34;
+    border-radius: 100%;
+}
+
+.pagination {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
 /*form*/
 
 .form-container {
     padding: 20px;
 }
 
-.form {
-    width: calc(1000% - 20px);
-    background-color: transparent;
-}
-
 .form-group {
     width: 300px;
-    color: var(--dark-seco);
+    color: rgb(77, 76, 82);
 }
 
 .form-control {
-    background-color: var(--white-prim);
-    color: var(--dark-seco);
-    border-color: var(--dark-seco);
+    background-color: whitesmoke;
+    color: rgb(85, 85, 85);
+    border-color: rgb(85, 85, 85);
 }
 
 .form-control:enabled {
-    background-color: var(--white-seco);
-    border-color: var(--dark-prim);
+    background-color: whitesmoke;
+    border-color: rgb(85, 85, 85);
 }
 
 .form-card {
@@ -92,6 +142,9 @@ legend {
     padding: 12px;
     border-radius: 8px;
 }
+
+
+/**/
 
 .pagination-container {
     list-style: none;

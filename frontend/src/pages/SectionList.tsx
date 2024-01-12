@@ -1,9 +1,8 @@
 import axios from "axios";
 import { ItemMdCard } from "components/cards/ItemCard";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { Props } from "types/CvType";
-import { ItemPage, SectionPage } from "types/SectionType";
+import { Props } from "types/page";
+import { ItemPage, SectionPage } from "types/section";
 import { BASE_URL } from "utils/requests";
 
 export function SectionListByCv({ id: cvId }: Props) {

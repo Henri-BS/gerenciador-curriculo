@@ -1,4 +1,4 @@
-import { ExperienceProps } from "types/ExperienceType";
+import { ExperienceProps } from "types/experience";
 
 export function ExperienceMdCard({experience}: ExperienceProps){
     return(

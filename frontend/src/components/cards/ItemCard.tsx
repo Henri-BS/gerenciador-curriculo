@@ -1,4 +1,4 @@
-import { ItemProps } from "types/SectionType";
+import { ItemProps } from "types/section";
 
 export function ItemMdCard({item}: ItemProps){
     return(

@@ -1,4 +1,4 @@
-import { EducationProps } from "types/EducationTypes";
+import { EducationProps } from "types/education";
 
 export function EducationMdCard({education}: EducationProps){
     return(

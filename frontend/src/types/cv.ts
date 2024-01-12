@@ -1,7 +1,3 @@
-export type Props = {
-    id: string;
-}
-
 export type Cv = {
     id: number;
     name: string;

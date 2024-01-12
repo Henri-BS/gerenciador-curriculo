@@ -1,8 +1,8 @@
 import axios from "axios";
 import { EducationMdCard } from "components/cards/EducationCard";
 import { useEffect, useState } from "react";
-import { Props } from "types/CvType";
-import { EducationPage } from "types/EducationTypes";
+import { EducationPage } from "types/education";
+import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
 
 export function EducationListByCv({ id: cvId }: Props) {

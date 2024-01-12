@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { Cv, CvProps, Props } from "types/CvType";
+import { Cv, CvProps } from "types/cv";
 import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
+import { Props } from "types/page";
+import { CvFormEdit } from "components/forms/CvForm";
 
 export function CvCard({ cv }: CvProps) {
     const params = useParams();
@@ -18,13 +20,13 @@ export function CvCard({ cv }: CvProps) {
                         <img src={cv.image} alt="cv-image" />
                     </nav>
                     <ul className="card-md-list">
-                        <li className="card-md-item ">Celular:
+                        <li className="card-md-item "><i className="fa fa-phone"/>
                             <p className="card-md-content">{cv.phone}</p>
                         </li>
-                        <li className="card-md-item ">Email:
+                        <li className="card-md-item "><i className="fa fa-envelope"/>
                             <p className="card-md-content">{cv.email}</p>
                         </li>
-                        <li className="card-md-item">Localidade:
+                        <li className="card-md-item"><i className="fa fa-map-marker"/>
                             <p className="card-md-content">{cv.location}</p>
                         </li>
                     </ul>
@@ -74,6 +76,7 @@ export function CvCard({ cv }: CvProps) {
 export function CvProfileCard({ id: cvId }: Props) {
 
     const navigate = useNavigate();
+    const params = useParams();
 
     const [cv, setClient] = useState<Cv>();
     useEffect(() => {
@@ -129,7 +132,7 @@ export function CvProfileCard({ id: cvId }: Props) {
                                 <span aria-hidden="true"><i className="fa fa-times" /></span>
                             </button>
                         </div>
-                        <div className="modal-body"></div>
+                        <div className="modal-body"><CvFormEdit id={`${params.cvId}`} /></div>
                     </div>
                 </div>
             </div>

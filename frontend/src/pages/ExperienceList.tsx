@@ -1,9 +1,8 @@
 import axios from "axios";
-import { EducationMdCard } from "components/cards/EducationCard";
 import { ExperienceMdCard } from "components/cards/ExperienceCard";
 import { useEffect, useState } from "react";
-import { Props } from "types/CvType";
-import { ExperiencePage } from "types/ExperienceType";
+import { ExperiencePage } from "types/experience";
+import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
 
 export function ExperienceListByCv({ id: cvId }: Props) {
