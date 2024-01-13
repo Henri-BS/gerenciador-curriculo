@@ -1,6 +1,6 @@
 import axios from "axios";
 import { CvCard } from "components/cards/CvCard";
-import { CvSaveForm } from "components/forms/CvForm";
+import { CvAddForm } from "components/forms/CvForm";
 import Pagination from "components/shared/Pagination";
 import { useEffect, useState } from "react";
 import { CvPage } from "types/cv";
@@ -30,48 +30,48 @@ function Home() {
             <div className="container">
 
                 <nav className="pagination-container row">
-                    <div className="col-12 col-md-4 col-xl-3 mb-2" data-bs-target="#addCvModal" data-bs-toggle="modal">
-                        <button className="btn btn-confirm"><i className="fa fa-save" /> Adicionar Cliente</button>
+                    <div className="col-6 col-md-4 col-xl-4 mb-2" data-bs-target="#addCvModal" data-bs-toggle="modal">
+                        <button className="option-link"><i className="fa fa-file" /> Novo Currículo</button>
                     </div>
-                    <div className="col-12 col-md-4 col-xl-6 mb-2" >
+                    <div className="col-6 col-md-4 col-xl-3 mb-2" >
                         <Pagination page={cvPage} onPageChange={handlePageChange} />
-                        </div>
+                    </div>
                     <div className="col-12 col-md-4 col-xl-3 mb-2" >
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            id="value"
-                            value={value}
-                            onChange={(e) => setValue(e.target.value)}
-                            className="form-control"
-                            placeholder="buscar currículos..."
-                        />
-                    </div>
-            </div>
-        </nav >
-            <div className="row">
-                {cvPage.content?.filter((x) =>
-                    x.name.toUpperCase().includes(value.toLocaleUpperCase()))
-                    .map(x => (
-                        <div key={x.id} className="col-12 col-md-6 col-xl-4 mb-3">
-                            <CvCard cv={x} />
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="value"
+                                value={value}
+                                onChange={(e) => setValue(e.target.value)}
+                                className="form-control"
+                                placeholder="buscar currículos..."
+                            />
                         </div>
-                    ))}
-            </div>
-            </div >
-        <div className="modal fade" id="addCvModal" role={"dialog"}>
-            <div className="modal-dialog" role={"document"}>
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <label className="modal-title">Adicionar um novo currículo</label>
-                        <button className="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"><i className="fa fa-times" /></span>
-                        </button>
                     </div>
-                    <div className="modal-body"><CvSaveForm/></div>
+                </nav >
+                <div className="row">
+                    {cvPage.content?.filter((x) =>
+                        x.name.toUpperCase().includes(value.toLocaleUpperCase()))
+                        .map(x => (
+                            <div key={x.id} className="col-12 col-md-6 col-xl-4 mb-3">
+                                <CvCard cv={x} />
+                            </div>
+                        ))}
+                </div>
+            </div >
+            <div className="modal fade" id="addCvModal" role={"dialog"}>
+                <div className="modal-dialog" role={"document"}>
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <label className="modal-title">Adicionar um novo currículo</label>
+                            <button className="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i className="fa fa-times" /></span>
+                            </button>
+                        </div>
+                        <div className="modal-body"><CvAddForm /></div>
+                    </div>
                 </div>
             </div>
-        </div>
         </>
     );
 }

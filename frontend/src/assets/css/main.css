@@ -35,25 +35,34 @@ legend {
 }
 
 .shadow-box:hover {
-    color: var(--blue-prim);
+    border: 2px solid rgb(106, 22, 175);
     max-inline-size: 100%;
-    box-shadow: 0px 12px 32px 0px rgba(0, 0, 17, 0.40);
+    box-shadow: 0px 12px 32px 0px rgba(33, 4, 87, 0.4);
 }
 
 
-/*Button*/
+/*buttons ands links*/
 
-.btn {
-    color: rgb(51, 49, 49);
-    background: transparent;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px 16px;
+.option-link {
+    background: rgb(106, 22, 175);
+    color: #fff;
+    border: solid transparent;
+    border-radius: 12px;
+    padding: 8px;
     transition: all 0.2s ease-in;
+    margin: 3px;
 }
 
-.btn:hover {
-    color: rgb(85, 85, 85);
+.option-link:hover {
+    background: transparent;
+    color: #000;
+    border: 3px solid rgb(156, 86, 212);
+}
+
+.option-link-delete:hover {
+    background: transparent;
+    color: #000;
+    border: 3px solid rgb(156, 86, 212);
 }
 
 
@@ -151,53 +160,9 @@ legend {
     margin: 0;
     padding: 12px;
     width: 100%;
-    display: flex;
     justify-content: center;
-    align-items: last baseline;
     font-size: medium;
     text-align: center;
-}
-
-.sub-navbar {
-    list-style: none;
-    margin: 0;
-    padding: 12px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: large;
-    text-align: center;
-}
-
-.sub-navbar-item {
-    height: 100%;
-    width: 40px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--dark-prim);
-}
-
-.sub-navbar a {
-    height: 50px;
-    font-size: 30px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-}
-
-.horizontal-list-container {
-    height: max-content;
-    width: 100%;
-    display: flex;
-    overflow-x: scroll;
-}
-
-.horizontal-list-item {
-    padding: 12px;
 }
 
 @media screen and (max-width: 550px) {

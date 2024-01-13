@@ -36,11 +36,12 @@ public class CvService {
         Cv add = new Cv();
         add.setId(dto.getId());
         add.setName(dto.getName());
-        add.setDescription(dto.getDescription());
-        add.setImage(dto.getEmail());
+        add.setImage(dto.getImage());
         add.setPhone(dto.getPhone());
         add.setEmail(dto.getEmail());
         add.setLocation(dto.getLocation());
+        add.setDescription(dto.getDescription());
+
         return new CvDto(cvRepository.saveAndFlush(add));
     }
 
@@ -49,11 +50,11 @@ public class CvService {
         Cv edit = cvRepository.findById(dto.getId()).orElseThrow();
         edit.setId(edit.getId());
         edit.setName(dto.getName());
-        edit.setDescription(dto.getDescription());
-        edit.setImage(dto.getEmail());
+        edit.setImage(dto.getImage());
         edit.setPhone(dto.getPhone());
         edit.setEmail(dto.getEmail());
         edit.setLocation(dto.getLocation());
+
         return new CvDto(cvRepository.save(edit));
     }
 

@@ -6,7 +6,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import { Props } from "types/page";
-import { CvFormEdit } from "components/forms/CvForm";
+import { CvEditForm } from "components/forms/CvForm";
 
 export function CvCard({ cv }: CvProps) {
     const params = useParams();
@@ -32,43 +32,6 @@ export function CvCard({ cv }: CvProps) {
                     </ul>
                 </div>
             </Link>
-
-            <div className="modal fade" id="optionModal" role={"dialog"}>
-                <div className="modal-dialog" role={"document"}>
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <label htmlFor="clientLabel" className="modal-title">Menu de opções </label>
-                            <button className="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"><i className="fa fa-times" /></span>
-                            </button>
-                        </div>
-                        <hr />
-                        <ul className="modal-body md-card-list">
-                            <li className="card-md-content link-option" data-bs-target="#clientEditModal" data-bs-toggle="modal">
-                                <i className="fa fa-edit" /> Editar Cliente
-                            </li>
-
-                            <li className="card-md-content link-option">
-                                <i className="fa fa-trash" /> Deletar Cliente
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div className="modal fade" id="clientEditModal" role={"dialog"}>
-                <div className="modal-dialog" role={"document"}>
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <label htmlFor="clientLabel" className="modal-title">Editar cliente</label>
-                            <button className="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"><i className="fa fa-times" /></span>
-                            </button>
-                        </div>
-                        <div className="modal-body"></div>
-                    </div>
-                </div>
-            </div>
         </>
     );
 }
@@ -78,33 +41,35 @@ export function CvProfileCard({ id: cvId }: Props) {
     const navigate = useNavigate();
     const params = useParams();
 
-    const [cv, setClient] = useState<Cv>();
+    const [cv, setCv] = useState<Cv>();
     useEffect(() => {
         axios.get(`${BASE_URL}/cv/${cvId}`)
             .then((response) => {
-                setClient(response.data);
+                setCv(response.data);
             })
     }, [cvId]);
 
     const deleteCv = () => {
-        axios.delete(`${BASE_URL}/client/delete/${cvId}`)
+        axios.delete(`${BASE_URL}/cv/delete/${cvId}`)
             .then((response) => {
-                navigate("/client-list");
+                navigate("/");
             })
     }
 
     return (
         <>
-            <div className="sub-navbar">
-                <button className="btn btn-primary" data-bs-target="#cvEditModal" data-bs-toggle="modal">
+         
+ <div className="list-group-horizontal">
+    <Link className="option-link" to={`/`}>
+    <i className="fa fa-home"/>
+    </Link>
+                <button className="option-link" data-bs-target="#cvEditModal" data-bs-toggle="modal">
                     <i className="fa fa-edit" /> Editar Currículo
                 </button>
-                <button className="btn btn-danger" data-bs-target="#cvDeleteModal" data-bs-toggle="modal">
+                <button className="option-link " data-bs-target="#cvDeleteModal" data-bs-toggle="modal">
                     <i className="fa fa-trash" /> Deletar Currículo
                 </button>
             </div>
-            <hr />
-
             <nav className="card-lg-container">
                 <img className="card-lg-img" src={cv?.image} />
                 <li className="card-lg-item">
@@ -122,6 +87,7 @@ export function CvProfileCard({ id: cvId }: Props) {
             </nav>
 
             <span>{cv?.description}</span>
+           
             <hr />
             <div className="modal fade" id="cvEditModal" role={"dialog"}>
                 <div className="modal-dialog" role={"document"}>
@@ -132,7 +98,7 @@ export function CvProfileCard({ id: cvId }: Props) {
                                 <span aria-hidden="true"><i className="fa fa-times" /></span>
                             </button>
                         </div>
-                        <div className="modal-body"><CvFormEdit id={`${params.cvId}`} /></div>
+                        <div className="modal-body"><CvEditForm id={`${params.cvId}`} /></div>
                     </div>
                 </div>
             </div>

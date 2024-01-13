@@ -5,7 +5,7 @@ import { Cv } from "types/cv";
 import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
 
-export function CvSaveForm() {
+export function CvAddForm() {
     const navigate = useNavigate();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -63,19 +63,20 @@ export function CvSaveForm() {
             </div>
 
             <div className="form-group col-12">
-                <label htmlFor="description">Descrição: </label>
-                <input type="text" className="form-control form-group-lg" id="description" />
-            </div>
+                    <label htmlFor="description">Descrição: </label>
+                    <textarea className="form-control" id="description"></textarea>
+                </div>
+
 
             <div className="modal-footer">
                 <button type="button" className="text-close" data-bs-dismiss="modal">cancelar</button>
-                <button type="submit" className="btn btn-primary">Adicionar</button>
+                <button type="submit" className="btn btn-success">Adicionar</button>
             </div>
         </form>
     );
 }
 
-export function CvFormEdit({ id: cvId }: Props) {
+export function CvEditForm({ id: cvId }: Props) {
 
     const [cv, setCv] = useState<Cv>();
     useEffect(() => {
@@ -96,7 +97,7 @@ export function CvFormEdit({ id: cvId }: Props) {
 
         const config: AxiosRequestConfig = {
             baseURL: BASE_URL,
-            method: "POST",
+            method: "PUT",
             url: "/cv/update",
             data: {
                 id: cvId,
@@ -117,38 +118,38 @@ export function CvFormEdit({ id: cvId }: Props) {
         <form className="form-card-container row" onSubmit={handleSubmit}>
                 <div className="form-group col-6">
                     <label htmlFor="name">Nome Completo: </label>
-                    <input type="text" className="form-control" id="name" />
+                    <input type="text" className="form-control" id="name" defaultValue={cv?.name}/>
                 </div>
 
                 <div className="form-group col-6">
                     <label htmlFor="image">Imagem: </label>
-                    <input type="text" className="form-control" id="image" />
+                    <input type="text" className="form-control" id="image" defaultValue={cv?.image}/>
                 </div>
 
                 <div className="form-group col-6">
                     <label htmlFor="email">Email: </label>
-                    <input className="form-control" id="email" />
+                    <input className="form-control" id="email" defaultValue={cv?.email}/>
                 </div>
 
                 <div className="form-group col-6">
-                    <label htmlFor="phone">Phone: </label>
-                    <input type="text" className="form-control" id="phone" />
+                    <label htmlFor="phone">Celular: </label>
+                    <input type="text" className="form-control" id="phone" defaultValue={cv?.phone}/>
                 </div>
 
                 <div className="form-group col-6">
                     <label htmlFor="location">Localização: </label>
-                    <input type="text" className="form-control" id="location" />
+                    <input type="text" className="form-control" id="location" defaultValue={cv?.location}/>
                 </div>
 
                 <div className="form-group col-12">
                     <label htmlFor="description">Descrição: </label>
-                    <input type="text" className="form-control" id="description" />
+                    <textarea className="form-control" id="description" defaultValue={cv?.description}></textarea>
                 </div>
 
 
              <div className="modal-footer">
                 <button type="button" className="text-close" data-bs-dismiss="modal">cancelar</button>
-                <button type="submit" className="btn-confirm">Editar</button>
+                <button type="submit" className="btn btn-success">Editar</button>
             </div>
         </form>
     );
