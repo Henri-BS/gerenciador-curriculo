@@ -1,15 +1,19 @@
 import { ExperienceProps } from "types/experience";
 
-export function ExperienceMdCard({experience}: ExperienceProps){
-    return(
-        <div className="card-md-container shadow-box">
-            <h3 className="card-md-title">{experience?.jobTitle} - {experience?.workingDay} </h3>
-            <div className="card-sm-box">
-                <h6 className="card-md-item">{experience?.company}</h6>
-                <div className="card-md-item">
-                    <h6>{experience.startDate} - {experience.endDate}</h6>
-                </div>
-            </div>
+export function ExperienceMdCard({ experience }: ExperienceProps) {
+    return (
+        <div className="card rounded">
+            <div className="card-header">{experience?.jobTitle}</div>
+            <ul className="list-group">
+                <li className="list-group-item">{experience?.company}</li>
+                <li className="list-group-item">{experience?.workingDay}</li>
+                {experience.startDate == null ? "" :
+                    <li className="list-group-item"> {experience?.startDate}</li>
+                }
+                {experience.endDate == null ? "" :
+                    <li className="list-group-item">{experience?.endDate}</li>
+                }
+            </ul>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 package com.altercode.gerenciadorcurriculo.dto;
 
 import com.altercode.gerenciadorcurriculo.entities.Education;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
@@ -17,7 +18,9 @@ public class EducationDto implements Serializable {
     private String institution;
     private String status;
     private String academicDegree;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate startDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate endDate;
     private Long cvId;
 

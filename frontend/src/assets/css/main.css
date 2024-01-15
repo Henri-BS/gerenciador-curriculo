@@ -14,27 +14,14 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
-fieldset {
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    background-color: transparent;
-}
-
-legend {
-    background-color: transparent;
-    border-radius: 12px;
-    font-weight: 800;
-}
-
-.shadow-box {
+.shadow-purple {
     transition: all 0.2s ease-in;
     cursor: pointer;
     color: black;
     border: 2px solid #b8b6b6;
 }
 
-.shadow-box:hover {
+.shadow-purple:hover {
     border: 2px solid rgb(106, 22, 175);
     max-inline-size: 100%;
     box-shadow: 0px 12px 32px 0px rgba(33, 4, 87, 0.4);
@@ -59,10 +46,19 @@ legend {
     border: 3px solid rgb(156, 86, 212);
 }
 
-.option-link-delete:hover {
+.option-link-sec {
     background: transparent;
-    color: #000;
-    border: 3px solid rgb(156, 86, 212);
+    color: rgb(106, 22, 175);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease-in;
+    margin: 2px;
+    font-size: 22px;
+}
+
+.option-link-sec:hover {
+    box-shadow: 0px 0px 12px 0px rgba(33, 4, 87, 0.4);
+    border: 1px solid rgb(106, 22, 175);
 }
 
 
@@ -154,21 +150,3 @@ legend {
 
 
 /**/
-
-.pagination-container {
-    list-style: none;
-    margin: 0;
-    padding: 12px;
-    width: 100%;
-    justify-content: center;
-    font-size: medium;
-    text-align: center;
-}
-
-@media screen and (max-width: 550px) {
-    .pagination-container {
-        grid-row: 3fr;
-        grid-template-rows: 3fr;
-        grid-column-end: auto;
-    }
-}

@@ -2,6 +2,7 @@ package com.altercode.gerenciadorcurriculo.dto;
 
 
 import com.altercode.gerenciadorcurriculo.entities.Experience;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
@@ -16,7 +17,9 @@ public class ExperienceDto implements Serializable {
     private String jobTitle;
     private String company;
     private String workingDay;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate startDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate endDate;
     private Long cvId;
 

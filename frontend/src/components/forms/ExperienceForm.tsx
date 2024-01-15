@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Cv } from "types/cv";
 import { Education } from "types/education";
+import { Experience } from "types/experience";
 import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
 
-export function EducationAddForm({ id: cvId }: Props) {
+export function ExperienceAddForm({ id: cvId }: Props) {
 
     const [cv, setCv] = useState<Cv>();
     useEffect(() => {
@@ -19,22 +20,21 @@ export function EducationAddForm({ id: cvId }: Props) {
     const navigate = useNavigate();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        const course = (event.target as any).course.value;
-        const institution = (event.target as any).description.value;
-        const status = (event.target as any).status.value;
-        const academicDegree = (event.target as any).academicDegree.value;
+        const jobTitle = (event.target as any).jobTitle.value;
+        const company = (event.target as any).company.value;
+        const workingDay = (event.target as any).workingDay.value;
         const startDate = (event.target as any).startDate.value;
         const endDate = (event.target as any).endDate.value;
-        
+
         const config: AxiosRequestConfig = {
             baseURL: BASE_URL,
             method: "POST",
-            url: "/education/save",
+            url: "/experience/save",
             data: {
-                course: course,
-                institution: institution,
-                status: status,
-                academicDegree: academicDegree,
+
+                jobTitle: jobTitle,
+                company: company,
+                workingDay: workingDay,
                 startDate: startDate,
                 endDate: endDate,
                 cvId: cvId
@@ -48,23 +48,18 @@ export function EducationAddForm({ id: cvId }: Props) {
     return (
         <form className=" form-container m-0 row" onSubmit={handleSubmit}>
             <div className="form-group col-6">
-                <label htmlFor="course">Curso: </label>
-                <input type="text" className="form-control" id="course" />
+                <label htmlFor="jobTitle">Cargo: </label>
+                <input type="text" className="form-control" id="jobTitle" />
             </div>
 
             <div className="form-group col-6">
-                <label htmlFor="institution">Instituição de ensino: </label>
-                <input type="text" className="form-control" id="institution" />
+                <label htmlFor="company">Empresa: </label>
+                <input type="text" className="form-control" id="company" />
             </div>
 
             <div className="form-group col-6">
-                <label htmlFor="status">Situação: </label>
-                <input className="form-control" id="status" placeholder="ex: Cursando, Concluído, Trancado..."/>
-            </div>
-
-            <div className="form-group col-6">
-                <label htmlFor="academicDegree">Grau acadêmico: </label>
-                <input type="text" className="form-control" id="academicDegree" placeholder="ex: Graduação, Especialização..."/>
+                <label htmlFor="workingDay">Jornada: </label>
+                <input className="form-control" id="workingDay" placeholder="ex: Meio-Período, Integral, Remoto..." />
             </div>
 
             <div className="form-group col-6">
@@ -85,80 +80,73 @@ export function EducationAddForm({ id: cvId }: Props) {
     );
 }
 
-export function EducationEditForm({ id: educationId }: Props) {
+export function ExperienceEditForm({ id: experienceId }: Props) {
 
-    const [education, setEducation] = useState<Education>();
+    const [experience, setExperience] = useState<Experience>();
     useEffect(() => {
-        axios.get(`${BASE_URL}/education/${educationId}`)
+        axios.get(`${BASE_URL}/experience/${experienceId}`)
             .then((response) => {
-                setEducation(response.data);
+                setExperience(response.data);
             })
-    }, [educationId])
-
+    }, [experienceId])
+    
     const navigate = useNavigate();
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        const course = (event.target as any).course.value;
-        const institution = (event.target as any).description.value;
-        const status = (event.target as any).status.value;
-        const academicDegree = (event.target as any).academicDegree.value;
+        const jobTitle = (event.target as any).jobTitle.value;
+        const company = (event.target as any).company.value;
+        const workingDay = (event.target as any).workingDay.value;
         const startDate = (event.target as any).startDate.value;
         const endDate = (event.target as any).endDate.value;
-        
+
         const config: AxiosRequestConfig = {
             baseURL: BASE_URL,
             method: "PUT",
-            url: "/education/update",
+            url: "/experience/update",
             data: {
-                id: educationId,
-                course: course,
-                institution: institution,
-                status: status,
-                academicDegree: academicDegree,
+                id: experienceId,
+                jobTitle: jobTitle,
+                company: company,
+                workingDay: workingDay,
                 startDate: startDate,
                 endDate: endDate
             }
+            
         };
         axios(config).then(response => {
-            navigate(`/cv/${education?.cvId}`);
+            navigate(`/cv/${experience?.cvId}`);
         })
     }
 
     return (
         <form className=" form-container m-0 row" onSubmit={handleSubmit}>
             <div className="form-group col-6">
-                <label htmlFor="course">Curso: </label>
-                <input type="text" className="form-control" id="course" defaultValue={education?.course}/>
+                <label htmlFor="jobTitle">Cargo: </label>
+                <input type="text" className="form-control" id="jobTitle" />
             </div>
 
             <div className="form-group col-6">
-                <label htmlFor="institution">Instituição de ensino: </label>
-                <input type="text" className="form-control" id="institution" defaultValue={education?.institution}/>
+                <label htmlFor="company">Compania: </label>
+                <input type="text" className="form-control" id="company" />
             </div>
 
             <div className="form-group col-6">
-                <label htmlFor="status">Situação: </label>
-                <input className="form-control" id="status" defaultValue={education?.status}/>
-            </div>
-
-            <div className="form-group col-6">
-                <label htmlFor="academicDegree">Grau acadêmico: </label>
-                <input type="text" className="form-control" id="academicDegree" defaultValue={education?.academicDegree}/>
+                <label htmlFor="workingDay">Jornada: </label>
+                <input className="form-control" id="workingDay" placeholder="ex: Meio-Período, Integral, Remoto..." />
             </div>
 
             <div className="form-group col-6">
                 <label htmlFor="startDate">Data inicial: </label>
-                <input type="date" className="form-control" id="startDate" defaultValue={education?.startDate}/>
+                <input type="date" className="form-control" id="startDate" />
             </div>
 
             <div className="form-group col-6">
                 <label htmlFor="endDate">Data final: </label>
-                <input type="date" className="form-control form-group" id="endDate" defaultValue={education?.endDate}/>
+                <input type="date" className="form-control form-group" id="endDate" />
             </div>
 
             <div className="modal-footer">
                 <button type="button" className="text-close" data-bs-dismiss="modal">cancelar</button>
-                <button type="submit" className="btn btn-success">Editar</button>
+                <button type="submit" className="btn btn-success">Adicionar</button>
             </div>
         </form>
     );

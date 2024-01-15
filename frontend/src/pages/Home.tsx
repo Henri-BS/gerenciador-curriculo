@@ -29,9 +29,9 @@ function Home() {
         <>
             <div className="container">
 
-                <nav className="pagination-container row">
-                    <div className="col-6 col-md-4 col-xl-4 mb-2" data-bs-target="#addCvModal" data-bs-toggle="modal">
-                        <button className="option-link"><i className="fa fa-file" /> Novo Currículo</button>
+                <nav className="navbar row">
+                    <div className="col-6 col-md-4 col-xl-4 mb-2" >
+                        <button data-bs-target="#addCvModal" data-bs-toggle="modal" className="option-link"><i className="fa fa-file-text" /> Novo Currículo</button>
                     </div>
                     <div className="col-6 col-md-4 col-xl-3 mb-2" >
                         <Pagination page={cvPage} onPageChange={handlePageChange} />
@@ -49,6 +49,7 @@ function Home() {
                         </div>
                     </div>
                 </nav >
+
                 <div className="row">
                     {cvPage.content?.filter((x) =>
                         x.name.toUpperCase().includes(value.toLocaleUpperCase()))
@@ -59,6 +60,7 @@ function Home() {
                         ))}
                 </div>
             </div >
+            
             <div className="modal fade" id="addCvModal" role={"dialog"}>
                 <div className="modal-dialog" role={"document"}>
                     <div className="modal-content">

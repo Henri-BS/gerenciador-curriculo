@@ -2,14 +2,17 @@ import { ItemProps } from "types/section";
 
 export function ItemMdCard({item}: ItemProps){
     return(
-        <div className="card-md-container shadow-box">
-            <h3 className="card-md-title">{item?.name} </h3>
-            <div className="card-sm-box">
-                <h6 className="card-md-item">{item?.description}</h6>
-                <div className="card-md-item">
-                    <h6>{item.startDate} - {item.endDate}</h6>
-                </div>
-            </div>
+        <div className="card rounded">
+            <div className="card-header">{item?.name}</div>
+            <ul className="list-group">
+                <li className="list-group-item">{item?.description}</li>
+                {item.startDate == null ? "" :
+                    <li className="list-group-item"> {item?.startDate}</li>
+                }
+                {item.endDate == null ? "" :
+                    <li className="list-group-item">{item?.endDate}</li>
+                }
+            </ul>
         </div>
     );
 }

@@ -1,15 +1,26 @@
 import { EducationProps } from "types/education";
 
-export function EducationMdCard({education}: EducationProps){
-    return(
-        <div className="card-md-container shadow-box">
-            <h3 className="card-md-title">{education?.academicDegree} em {education?.course} ({education?.status}) </h3>
-            <div className="card-sm-box">
-                <h6 className="card-md-item">{education?.institution}</h6>
-                <div className="card-md-item">
-                    <h6>{education.startDate} - {education.endDate}</h6>
-                </div>
-            </div>
+export function EducationMdCard({ education }: EducationProps) {
+    return (
+        <div className="card rounded">
+            <div className="card-header">{education?.course} </div>
+            <ul className="list-group">
+                {education.institution == null ? "" :
+                    <li className="list-group-item"> {education.institution}</li>
+                }
+                {education.academicDegree == null ? "" :
+                    <li className="list-group-item"> {education.academicDegree}</li>
+                }
+                {education.status == null ? "" :
+                    <li className="list-group-item">{education.status}</li>
+                }
+                {education.startDate == null ? "" :
+                    <li className="list-group-item"> {education?.startDate}</li>
+                }
+                {education.endDate == null ? "" :
+                    <li className="list-group-item">{education?.endDate}</li>
+                }
+            </ul>
         </div>
     );
 

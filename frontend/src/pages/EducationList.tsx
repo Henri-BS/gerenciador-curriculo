@@ -22,29 +22,27 @@ export function EducationListByCv({ id: cvId }: Props) {
 
     return (
         <>
-            <fieldset>
-                <div className="list-group list-group-horizontal">
-                    <h2 className="list-group-item">Educação</h2>
-                    <div className="list-group-item" data-bs-target="#educationAddModal" data-bs-toggle="modal" >
-                        <button className="option-link"><i className="fa fa-file" /> Adicionar</button>
-                    </div>
+            <div className="d-flex justify-content-start">
+                <h2>Educação</h2>
+                <div data-bs-target="#educationAddModal" data-bs-toggle="modal" >
+                    <button className="option-link-sec"> <i className="fa fa-plus" /></button>
                 </div>
+            </div>
+            {educationPage.empty ? <h5>Nenhum Item Adicionado</h5> :
+                <div className="row">
+                    {educationPage.content?.map(education => (
+                        <div key={education.cvId} className="col-sm-12 col-lg-6 col-xl-4 mb-3">
+                            <EducationMdCard education={education} />
+                        </div>
+                    ))}
+                </div>
+            }
 
-                {educationPage.empty ? <h5>Nenhum Item Adicionado</h5> :
-                    <div className="row">
-                        {educationPage.content?.map(education => (
-                            <div key={education.cvId} className="col-sm-12 col-lg-6 col-xl-4 mb-3">
-                                <EducationMdCard education={education} />
-                            </div>
-                        ))}
-                    </div>
-                }
-            </fieldset>
             <div className="modal fade " id="educationAddModal" role={"dialog"}>
                 <div className="modal-dialog modal-lg" role={"document"}>
                     <div className="modal-content">
                         <div className="modal-header">
-                            <label className="modal-title">Adicionar</label>
+                            <label className="modal-title">Adicionar nova formação acadêmica</label>
                             <button className="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"><i className="fa fa-times" /></span>
                             </button>
