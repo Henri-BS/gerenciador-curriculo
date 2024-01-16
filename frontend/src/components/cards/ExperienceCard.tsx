@@ -2,10 +2,13 @@ import axios from "axios";
 import { ExperienceEditForm } from "components/forms/ExperienceForm";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { Experience, ExperienceProps } from "types/experience";
 import { BASE_URL } from "utils/requests";
 
 export function ExperienceMdCard({ experience }: ExperienceProps) {
+
+    const navigate = useNavigate();
 
 const [, setExperience] = useState<Experience>();
         useEffect(() => {
@@ -18,7 +21,7 @@ const [, setExperience] = useState<Experience>();
         const deleteExperience = () => {
             axios.delete(`${BASE_URL}/experience/delete/${experience.id}`)
                 .then((response) => {
-         
+                    navigate(0);
                 })
         }
 
@@ -27,8 +30,8 @@ const [, setExperience] = useState<Experience>();
             <div className="card">
                 <div className="card-header d-flex justify-content-between">
                     {experience?.jobTitle}
-                    <div>
-                        <i className="fa fa-edit option-link-sec" data-bs-dismiss="modal" data-bs-target="#experienceMenuModal" data-bs-toggle="modal" data-placement="top" title="Editar"/>
+                    <div className="d-flex">
+                        <i className="fa fa-edit option-link-sec" data-bs-dismiss="modal" data-bs-target="#experienceEditModal" data-bs-toggle="modal" data-placement="top" title="Editar"/>
                         <i className="fa fa-trash option-link-sec" data-bs-dismiss="modal" data-bs-target="#experienceDeleteModal" data-bs-toggle="modal" data-placement="top" title="Deletar" />
                     </div>
                 </div>
@@ -43,11 +46,11 @@ const [, setExperience] = useState<Experience>();
                     }
                 </ul>
             </div>
-            <div className="modal fade" id="experienceMenuModal" role={"dialog"}>
+            <div className="modal fade" id="experienceEditModal" role={"dialog"}>
                 <div className="modal-dialog" role={"document"}>
                     <div className="modal-content">
                         <div className="modal-header">
-                            <label className="modal-title">Menu de Opções </label>
+                            <label className="modal-title">Editar Item </label>
                             <button className="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"><i className="fa fa-times" /></span>
                             </button>
