@@ -23,7 +23,7 @@ export function ExperienceListByCv({ id: cvId }: Props) {
         <>
             <div className="d-flex justify-content-start">
                 <h2> Experiência </h2>
-                <div data-bs-target="#experienceAddModal" data-bs-toggle="modal" >
+                <div data-bs-target="#experienceAddModal" data-bs-toggle="modal" data-placement="top" title="Adicionar" >
                     <button className="option-link-sec"> <i className="fa fa-plus" /></button>
                 </div>
             </div>

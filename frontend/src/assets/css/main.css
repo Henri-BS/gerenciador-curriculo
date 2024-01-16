@@ -48,17 +48,23 @@ a {
 
 .option-link-sec {
     background: transparent;
-    color: rgb(106, 22, 175);
+    color: rgb(156, 86, 212);
     border: 1px solid transparent;
     border-radius: 6px;
     transition: all 0.2s ease-in;
     margin: 2px;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .option-link-sec:hover {
-    box-shadow: 0px 0px 12px 0px rgba(33, 4, 87, 0.4);
-    border: 1px solid rgb(106, 22, 175);
+    color: rgb(106, 22, 175);
+}
+
+.list-group-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 

@@ -2,7 +2,6 @@ import axios, { AxiosRequestConfig } from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Cv } from "types/cv";
-import { Education } from "types/education";
 import { Experience } from "types/experience";
 import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
@@ -46,28 +45,28 @@ export function ExperienceAddForm({ id: cvId }: Props) {
     }
 
     return (
-        <form className=" form-container m-0 row" onSubmit={handleSubmit}>
-            <div className="form-group col-6">
+        <form className=" form-container m-0" onSubmit={handleSubmit}>
+            <div className="form-group">
                 <label htmlFor="jobTitle">Cargo: </label>
                 <input type="text" className="form-control" id="jobTitle" />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="company">Empresa: </label>
                 <input type="text" className="form-control" id="company" />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="workingDay">Jornada: </label>
                 <input className="form-control" id="workingDay" placeholder="ex: Meio-Período, Integral, Remoto..." />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="startDate">Data inicial: </label>
                 <input type="date" className="form-control" id="startDate" />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="endDate">Data final: </label>
                 <input type="date" className="form-control form-group" id="endDate" />
             </div>
@@ -89,7 +88,7 @@ export function ExperienceEditForm({ id: experienceId }: Props) {
                 setExperience(response.data);
             })
     }, [experienceId])
-    
+
     const navigate = useNavigate();
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const jobTitle = (event.target as any).jobTitle.value;
@@ -121,32 +120,32 @@ export function ExperienceEditForm({ id: experienceId }: Props) {
         <form className=" form-container m-0 row" onSubmit={handleSubmit}>
             <div className="form-group col-6">
                 <label htmlFor="jobTitle">Cargo: </label>
-                <input type="text" className="form-control" id="jobTitle" />
+                <input type="text" className="form-control" id="jobTitle" defaultValue={experience?.jobTitle} />
             </div>
 
             <div className="form-group col-6">
-                <label htmlFor="company">Compania: </label>
-                <input type="text" className="form-control" id="company" />
+                <label htmlFor="company">Empresa: </label>
+                <input type="text" className="form-control" id="company" defaultValue={experience?.company}/>
             </div>
 
             <div className="form-group col-6">
                 <label htmlFor="workingDay">Jornada: </label>
-                <input className="form-control" id="workingDay" placeholder="ex: Meio-Período, Integral, Remoto..." />
+                <input className="form-control" id="workingDay" defaultValue={experience?.workingDay}/>
             </div>
 
             <div className="form-group col-6">
                 <label htmlFor="startDate">Data inicial: </label>
-                <input type="date" className="form-control" id="startDate" />
+                <input type="date" className="form-control" id="startDate" defaultValue={experience?.startDate}/>
             </div>
 
             <div className="form-group col-6">
                 <label htmlFor="endDate">Data final: </label>
-                <input type="date" className="form-control form-group" id="endDate" />
+                <input type="date" className="form-control form-group" id="endDate" defaultValue={experience?.endDate}/>
             </div>
 
             <div className="modal-footer">
                 <button type="button" className="text-close" data-bs-dismiss="modal">cancelar</button>
-                <button type="submit" className="btn btn-success">Adicionar</button>
+                <button type="submit" className="btn btn-success">Editar</button>
             </div>
         </form>
     );

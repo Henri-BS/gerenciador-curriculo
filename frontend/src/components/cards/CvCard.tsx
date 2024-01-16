@@ -67,12 +67,12 @@ export function CvProfileCard({ id: cvId }: Props) {
                 <button className="option-link" data-bs-target="#cvEditModal" data-bs-toggle="modal">
                     <i className="fa fa-edit" /> Editar Currículo
                 </button>
-                <button className="option-link " data-bs-target="#cvDeleteModal" data-bs-toggle="modal">
+                <button className="option-link" data-bs-target="#cvDeleteModal" data-bs-toggle="modal">
                     <i className="fa fa-trash" /> Deletar Currículo
                 </button>
 
                 <button className="option-link" data-bs-target="#sectionAddModal" data-bs-toggle="modal">
-                    <i className="fa fa-th-large" /> Adicionar Seção
+                    <i className="fa fa-th-large"/> Adicionar Seção
                 </button>
             </div>
             <nav className="card-lg-container">
@@ -91,7 +91,7 @@ export function CvProfileCard({ id: cvId }: Props) {
                 </li>
             </nav>
 
-            <span>{cv?.description}</span>
+            <h5><i>{cv?.description}</i></h5>
 
             <hr />
             <div className="modal fade" id="cvEditModal" role={"dialog"}>

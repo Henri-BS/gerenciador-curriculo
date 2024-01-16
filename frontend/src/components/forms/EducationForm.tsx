@@ -16,11 +16,9 @@ export function EducationAddForm({ id: cvId }: Props) {
             })
     }, [cvId]);
 
-    const navigate = useNavigate();
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const course = (event.target as any).course.value;
-        const institution = (event.target as any).description.value;
+        const institution = (event.target as any).institution.value;
         const status = (event.target as any).status.value;
         const academicDegree = (event.target as any).academicDegree.value;
         const startDate = (event.target as any).startDate.value;
@@ -41,38 +39,37 @@ export function EducationAddForm({ id: cvId }: Props) {
             }
         };
         axios(config).then(response => {
-            navigate(`/cv/${cvId}`);
         })
     }
 
     return (
-        <form className=" form-container m-0 row" onSubmit={handleSubmit}>
-            <div className="form-group col-6">
+        <form className=" form-card m-0" onSubmit={handleSubmit}>
+            <div className="form-group">
                 <label htmlFor="course">Curso: </label>
-                <input type="text" className="form-control" id="course" />
+                <input className="form-control" id="course" />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="institution">Instituição de ensino: </label>
-                <input type="text" className="form-control" id="institution" />
+                <input className="form-control" id="institution" />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="status">Situação: </label>
                 <input className="form-control" id="status" placeholder="ex: Cursando, Concluído, Trancado..."/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="academicDegree">Grau acadêmico: </label>
-                <input type="text" className="form-control" id="academicDegree" placeholder="ex: Graduação, Especialização..."/>
+                <input className="form-control" id="academicDegree" placeholder="ex: Graduação, Especialização..."/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="startDate">Data inicial: </label>
                 <input type="date" className="form-control" id="startDate" />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="endDate">Data final: </label>
                 <input type="date" className="form-control form-group" id="endDate" />
             </div>
@@ -99,7 +96,7 @@ export function EducationEditForm({ id: educationId }: Props) {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const course = (event.target as any).course.value;
-        const institution = (event.target as any).description.value;
+        const institution = (event.target as any).institution.value;
         const status = (event.target as any).status.value;
         const academicDegree = (event.target as any).academicDegree.value;
         const startDate = (event.target as any).startDate.value;
@@ -125,28 +122,28 @@ export function EducationEditForm({ id: educationId }: Props) {
     }
 
     return (
-        <form className=" form-container m-0 row" onSubmit={handleSubmit}>
-            <div className="form-group col-6">
+        <form className=" form-card-container m-0 " onSubmit={handleSubmit}>
+            <div className="form-group">
                 <label htmlFor="course">Curso: </label>
                 <input type="text" className="form-control" id="course" defaultValue={education?.course}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="institution">Instituição de ensino: </label>
                 <input type="text" className="form-control" id="institution" defaultValue={education?.institution}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="status">Situação: </label>
                 <input className="form-control" id="status" defaultValue={education?.status}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="academicDegree">Grau acadêmico: </label>
                 <input type="text" className="form-control" id="academicDegree" defaultValue={education?.academicDegree}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="startDate">Data inicial: </label>
                 <input type="date" className="form-control" id="startDate" defaultValue={education?.startDate}/>
             </div>

@@ -44,6 +44,6 @@ public class ExperienceController {
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteExperience(@PathVariable Long id) {
-        this.experienceService.deleteExperience(id);
+        experienceService.deleteExperience(id);
     }
 }

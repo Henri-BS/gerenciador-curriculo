@@ -1,5 +1,7 @@
 package com.altercode.gerenciadorcurriculo.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
