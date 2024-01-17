@@ -115,13 +115,6 @@ a {
     border-radius: 100%;
 }
 
-.pagination {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 
 /*form*/
 
@@ -156,3 +149,26 @@ a {
 
 
 /**/
+
+.horizontal-list {
+    max-height: 400px;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    overflow-x: scroll;
+    border-radius: 20px;
+}
+
+.horizontal-list::-webkit-scrollbar {
+    height: 5px;
+    width: 0;
+}
+
+.horizontal-list-item {
+    width: 400px;
+    padding: 2px;
+}
+
+.horizontal-list a {
+    color: #2a323a;
+}

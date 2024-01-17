@@ -10,39 +10,39 @@ export function ExperienceMdCard({ experience }: ExperienceProps) {
 
     const navigate = useNavigate();
 
-const [, setExperience] = useState<Experience>();
-        useEffect(() => {
-            axios.get(`${BASE_URL}/experience/${experience.id}`)
-                .then((response) => {
-                    setExperience(response.data);
-                })
-        }, [experience.id]);
+    const [, setExperience] = useState<Experience>();
+    useEffect(() => {
+        axios.get(`${BASE_URL}/experience/${experience.id}`)
+            .then((response) => {
+                setExperience(response.data);
+            })
+    }, [experience.id]);
 
-        const deleteExperience = () => {
-            axios.delete(`${BASE_URL}/experience/delete/${experience.id}`)
-                .then((response) => {
-                    navigate(0);
-                })
-        }
+    const deleteExperience = () => {
+        axios.delete(`${BASE_URL}/experience/delete/${experience.id}`)
+            .then((response) => {
+                navigate(0);
+            })
+    }
 
     return (
         <>
             <div className="card">
                 <div className="card-header d-flex justify-content-between">
-                    {experience?.jobTitle}
+                    <h5 data-placement="top" title={experience.jobTitle}>{experience?.jobTitle}</h5>
                     <div className="d-flex">
-                        <i className="fa fa-edit option-link-sec" data-bs-dismiss="modal" data-bs-target="#experienceEditModal" data-bs-toggle="modal" data-placement="top" title="Editar"/>
-                        <i className="fa fa-trash option-link-sec" data-bs-dismiss="modal" data-bs-target="#experienceDeleteModal" data-bs-toggle="modal" data-placement="top" title="Deletar" />
+                        <i className="fa fa-edit option-link-sec" data-bs-target="#experienceEditModal" data-bs-toggle="modal" data-placement="top" title="Editar" />
+                        <i className="fa fa-trash option-link-sec" data-bs-target="#experienceDeleteModal" data-bs-toggle="modal" data-placement="top" title="Deletar" />
                     </div>
                 </div>
                 <ul className="list-group">
-                    <li className="list-group-item">{experience?.company}</li>
-                    <li className="list-group-item">{experience?.workingDay}</li>
+                    <li className="list-group-item" data-placement="top" title={experience.company}><b>Empresa:</b> {experience?.company}</li>
+                    <li className="list-group-item"><b>Jornada:</b> {experience?.workingDay}</li>
                     {experience.startDate == null ? "" :
-                        <li className="list-group-item"> {moment(experience?.startDate).format("MM/yyyy")}</li>
+                        <li className="list-group-item"><b>Iniciado em:</b> {moment(experience?.startDate).format("MM/yyyy")}</li>
                     }
                     {experience.endDate == null ? "" :
-                        <li className="list-group-item">{moment(experience?.endDate).format("MM/yyyy")}</li>
+                        <li className="list-group-item"><b>Finalizado em:</b> {moment(experience?.endDate).format("MM/yyyy")}</li>
                     }
                 </ul>
             </div>
@@ -74,7 +74,6 @@ const [, setExperience] = useState<Experience>();
                     </div>
                 </div>
             </div>
-
         </>
     );
 }

@@ -28,9 +28,9 @@ export function EducationListByCv({ id: cvId }: Props) {
                 </div>
             </div>
             {educationPage.empty ? <h5>Nenhum Item Adicionado</h5> :
-                <div className="row">
+                <div className="horizontal-list">
                     {educationPage.content?.map(education => (
-                        <div key={education.cvId} className="col-sm-12 col-lg-6 col-xl-4 mb-3">
+                        <div key={education.cvId} className="horizontal-list-item">
                             <EducationMdCard education={education} />
                         </div>
                     ))}
@@ -50,6 +50,7 @@ export function EducationListByCv({ id: cvId }: Props) {
                     </div>
                 </div>
             </div>
+            <hr />
         </>
     );
 }

@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "../components/shared/Navbar";
-import Home from "../pages/Home";
+import Home from "../pages/CvList";
 import { CvProfile } from "pages/CvProfile";
 
 function PageRoutes() {

@@ -27,10 +27,12 @@ export function ExperienceListByCv({ id: cvId }: Props) {
                     <button className="option-link-sec"> <i className="fa fa-plus" /></button>
                 </div>
             </div>
+
             {experiencePage.empty ? <h5>Nenhum Item Adicionado</h5> :
-                <div className="row">
+                <div className="horizontal-list">
+
                     {experiencePage.content?.map(experience => (
-                        <div key={experience.cvId} className="col-sm-12 col-lg-6 col-xl-4 mb-3">
+                        <div key={experience.cvId} className="horizontal-list-item">
                             <ExperienceMdCard experience={experience} />
                         </div>
                     ))}
@@ -49,6 +51,7 @@ export function ExperienceListByCv({ id: cvId }: Props) {
                     </div>
                 </div>
             </div>
+            <hr />
         </>
     );
 }

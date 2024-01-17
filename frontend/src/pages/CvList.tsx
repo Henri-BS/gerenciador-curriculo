@@ -27,13 +27,11 @@ function Home() {
 
     return (
         <>
-            <div className="container">
-
-                <nav className="navbar row">
-                    <div className="col-6 col-md-4 col-xl-4 mb-2" >
+                <nav className="navbar row m-0">
+                    <div className="col-12 col-md-4 col-xl-4 mb-2" >
                         <button data-bs-target="#addCvModal" data-bs-toggle="modal" className="option-link"><i className="fa fa-file-text" /> Novo Currículo</button>
                     </div>
-                    <div className="col-6 col-md-4 col-xl-3 mb-2" >
+                    <div className="col-12 col-md-4 col-xl-3 mt-2" >
                         <Pagination page={cvPage} onPageChange={handlePageChange} />
                     </div>
                     <div className="col-12 col-md-4 col-xl-3 mb-2" >
@@ -49,6 +47,8 @@ function Home() {
                         </div>
                     </div>
                 </nav >
+            <div className="container">
+
 
                 <div className="row">
                     {cvPage.content?.filter((x) =>
@@ -60,7 +60,7 @@ function Home() {
                         ))}
                 </div>
             </div >
-            
+
             <div className="modal fade" id="addCvModal" role={"dialog"}>
                 <div className="modal-dialog" role={"document"}>
                     <div className="modal-content">
