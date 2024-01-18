@@ -1,5 +1,6 @@
 import axios from "axios";
-import { ItemEditForm, SectionEditForm } from "components/forms/SectionForm";
+import { ItemEditForm } from "components/forms/ItemForm";
+import { SectionEditForm } from "components/forms/SectionForm";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";

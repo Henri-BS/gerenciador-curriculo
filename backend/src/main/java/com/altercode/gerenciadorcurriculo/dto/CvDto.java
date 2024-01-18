@@ -13,6 +13,7 @@ public class CvDto implements Serializable {
 
     private Long id;
     private String name;
+    private String jobTitle;
     private String description;
     private String image;
     private String phone;
@@ -25,6 +26,7 @@ public class CvDto implements Serializable {
     public CvDto(Cv entity) {
         id = entity.getId();
         name = entity.getName();
+        jobTitle = entity.getJobTitle();
         description = entity.getDescription();
         image = entity.getImage();
         phone = entity.getPhone();
@@ -36,11 +38,13 @@ public class CvDto implements Serializable {
         return id;
     }
 
-
     public String getName() {
         return name;
     }
 
+    public String getJobTitle() {
+        return jobTitle;
+    }
 
     public String getDescription() {
         return description;
@@ -54,14 +58,11 @@ public class CvDto implements Serializable {
         return phone;
     }
 
-
     public String getLocation() {
         return location;
     }
 
-
     public String getEmail() {
         return email;
     }
-
 }

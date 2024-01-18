@@ -1,0 +1,30 @@
+.option-link {
+    background: rgb(106, 22, 175);
+    color: #fff;
+    border: solid transparent;
+    border-radius: 12px;
+    padding: 8px;
+    transition: all 0.2s ease-in;
+    margin: 3px;
+}
+
+.option-link:hover {
+    background: transparent;
+    color: #000;
+    border: 3px solid rgb(156, 86, 212);
+}
+
+.option-link-sec {
+    background: transparent;
+    color: rgb(156, 86, 212);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease-in;
+    margin: 2px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.option-link-sec:hover {
+    color: rgb(106, 22, 175);
+}

@@ -12,13 +12,18 @@ public class Cv {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cv_id")
     private Long id;
+    @Column(name= "name", nullable = false)
     private String name;
+    @Column(name= "job_title", nullable = false)
+    private String jobTitle;
     @Column(name= "description", columnDefinition = "TEXT")
     private String description;
+    @Column(name= "email", unique = true)
+    private String email;
+
     private String image;
     private String phone;
     private String location;
-    private String email;
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
     private final List<Education> educationList = new ArrayList<>();
@@ -30,14 +35,15 @@ public class Cv {
     public Cv() {
     }
 
-    public Cv(Long id, String name, String description, String image, String phone, String location, String email) {
+    public Cv(Long id, String name, String jobTitle, String description, String email, String image, String phone, String location) {
         this.id = id;
         this.name = name;
+        this.jobTitle = jobTitle;
         this.description = description;
+        this.email = email;
         this.image = image;
         this.phone = phone;
         this.location = location;
-        this.email = email;
     }
 
     public Long getId() {
@@ -54,6 +60,14 @@ public class Cv {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public String getImage() {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ItemMdCard, SectionCard } from "components/cards/ItemCard";
-import { ItemAddForm } from "components/forms/SectionForm";
+import { ItemAddForm } from "components/forms/ItemForm";
 import { useState, useEffect } from "react";
 import { Props } from "types/page";
 import { ItemPage, SectionPage } from "types/section";
@@ -41,7 +41,6 @@ export function SectionListByCv({ id: cvId }: Props) {
                 </div>
 
             ))}
-            <hr />
         </>
     );
 }

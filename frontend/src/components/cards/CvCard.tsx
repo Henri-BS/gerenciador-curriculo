@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Cv, CvProps } from "types/cv";
-import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
@@ -19,7 +18,8 @@ export function CvCard({ cv }: CvProps) {
                     <nav className="card-md-title">
                         <h3>{cv.name}</h3>
                         <img src={cv.image} alt="cv-image" />
-                    </nav>
+                    </nav>                    
+                    <p className="card-md-content">{cv.jobTitle}</p>
                     <ul className="card-md-list">
                         <li className="card-md-item "><i className="fa fa-phone" />
                             <p className="card-md-content">{cv.phone}</p>
@@ -80,6 +80,9 @@ export function CvProfileCard({ id: cvId }: Props) {
                 <li className="card-lg-item">
                     <h1 >{cv?.name}</h1>
                 </li>
+                <li className="card-lg-item">
+                    <h3 >{cv?.jobTitle}</h3>
+                </li>
                 <li className="card-lg-item"><i className="fa fa-phone" />
                     <h4 className="card-lg-content">{cv?.phone}</h4>
                 </li>
@@ -91,7 +94,7 @@ export function CvProfileCard({ id: cvId }: Props) {
                 </li>
             </nav>
 
-            <h5><i>{cv?.description}</i></h5>
+            <i>{cv?.description}</i>
 
             <hr />
             <div className="modal fade" id="cvEditModal" role={"dialog"}>
@@ -140,3 +143,4 @@ export function CvProfileCard({ id: cvId }: Props) {
         </>
     );
 }
+

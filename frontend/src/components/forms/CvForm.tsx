@@ -10,6 +10,7 @@ export function CvAddForm() {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const name = (event.target as any).name.value;
+        const jobTitle = (event.target as any).jobTitle.value;
         const description = (event.target as any).description.value;
         const image = (event.target as any).image.value;
         const email = (event.target as any).email.value;
@@ -22,6 +23,7 @@ export function CvAddForm() {
             url: "/cv/save",
             data: {
                 name: name,
+                jobTitle: jobTitle,
                 description: description,
                 image: image,
                 email: email,
@@ -41,6 +43,11 @@ export function CvAddForm() {
                 <label htmlFor="name">Nome Completo: </label>
                 <input type="text" className="form-control" id="name" />
             </div>
+
+            <div className="form-group col-6">
+                    <label htmlFor="jobTitle">Cargo: </label>
+                    <input type="text" className="form-control" id="jobTitle"/>
+                </div>
 
             <div className="form-group col-6">
                 <label htmlFor="image">Imagem: </label>
@@ -89,6 +96,7 @@ export function CvEditForm({ id: cvId }: Props) {
     const navigate = useNavigate();
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const name = (event.target as any).name.value;
+        const jobTitle = (event.target as any).jobTitle.value;
         const description = (event.target as any).description.value;
         const image = (event.target as any).image.value;
         const email = (event.target as any).email.value;
@@ -102,6 +110,7 @@ export function CvEditForm({ id: cvId }: Props) {
             data: {
                 id: cvId,
                 name: name,
+                jobTitle: jobTitle,
                 description: description,
                 image: image,
                 email: email,
@@ -122,6 +131,11 @@ export function CvEditForm({ id: cvId }: Props) {
                 </div>
 
                 <div className="form-group col-6">
+                    <label htmlFor="jobTitle">Cargo: </label>
+                    <input type="text" className="form-control" id="jobTitle" defaultValue={cv?.jobTitle}/>
+                </div>
+
+                <div className="form-group col-6">
                     <label htmlFor="image">Imagem: </label>
                     <input type="text" className="form-control" id="image" defaultValue={cv?.image}/>
                 </div>
@@ -132,7 +146,7 @@ export function CvEditForm({ id: cvId }: Props) {
                 </div>
 
                 <div className="form-group col-6">
-                    <label htmlFor="phone">Celular: </label>
+                    <label htmlFor="phone"> Telefone Celular: </label>
                     <input type="text" className="form-control" id="phone" defaultValue={cv?.phone}/>
                 </div>
 

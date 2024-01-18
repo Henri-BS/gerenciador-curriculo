@@ -45,10 +45,10 @@ export function EducationMdCard({ education }: EducationProps) {
                     <li className="list-group-item"><b>Situação: </b>{education?.status}</li>
                 }
                 {education.startDate == null ? "" :
-                    <li className="list-group-item"><b>Iniciado em: </b> {moment(education?.startDate).format("DD/MM/yyyy")}</li>
+                    <li className="list-group-item"><b>Iniciado em: </b> {moment(education?.startDate).format("MM/yyyy")}</li>
                 }
                 {education.endDate == null ? "" :
-                    <li className="list-group-item"><b>Finalizado em: </b>{moment(education?.endDate).format("DD/MM/yyyy")}</li>
+                    <li className="list-group-item"><b>Finalizado em: </b>{moment(education?.endDate).format("MM/yyyy")}</li>
                 }
             </ul>
         </div>

@@ -36,6 +36,7 @@ public class CvService {
         Cv add = new Cv();
         add.setId(dto.getId());
         add.setName(dto.getName());
+        add.setJobTitle(dto.getJobTitle());
         add.setImage(dto.getImage());
         add.setPhone(dto.getPhone());
         add.setEmail(dto.getEmail());
@@ -50,6 +51,7 @@ public class CvService {
         Cv edit = cvRepository.findById(dto.getId()).orElseThrow();
         edit.setId(edit.getId());
         edit.setName(dto.getName());
+        edit.setJobTitle(dto.getJobTitle());
         edit.setImage(dto.getImage());
         edit.setPhone(dto.getPhone());
         edit.setEmail(dto.getEmail());

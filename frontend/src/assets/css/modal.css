@@ -1,0 +1,44 @@
+.text-close {
+    border: 0;
+    background-color: transparent;
+    color: var(--white-prim);
+    font-size: large;
+    transition: all 0.2s ease-in-out;
+}
+
+.text-close:hover {
+    color: var(--white-seco);
+    text-decoration: underline;
+}
+
+.modal-content {
+    max-height: 580px;
+    font-size: small;
+    border-radius: 8px;
+    background-color: rgb(74, 74, 94);
+    color: var(--white-prim);
+}
+
+.modal-header span {
+    color: var(--white-prim);
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    padding: 8px;
+}
+
+.close {
+    background-color: transparent;
+    border-radius: 100%;
+    border: none;
+    transition: all 0.2s ease-in;
+    font-size: large;
+}
+
+.close:hover {
+    background-color: #cccccc34;
+    border-radius: 100%;
+}

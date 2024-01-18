@@ -1,3 +1,28 @@
+.card-header h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-group-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shadow-purple {
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #b8b6b6;
+}
+
+.shadow-purple:hover {
+    border: 2px solid rgb(106, 22, 175);
+    max-inline-size: 100%;
+    box-shadow: 0px 12px 32px 0px rgba(33, 4, 87, 0.4);
+}
+
 .card-md-container {
     width: 350px;
     height: max-content;

@@ -1,13 +1,14 @@
 import axios from "axios";
 import { CvCard } from "components/cards/CvCard";
 import { CvAddForm } from "components/forms/CvForm";
+import Footer from "components/shared/Footer";
 import Pagination from "components/shared/Pagination";
 import { useEffect, useState } from "react";
 import { CvPage } from "types/cv";
 import { BASE_URL } from "utils/requests";
 
 
-function Home() {
+function CvList() {
     const [value, setValue] = useState("");
     const [pageNumber, setPageNumber] = useState(0);
     const handlePageChange = (newPageNumber: number) => {
@@ -29,7 +30,7 @@ function Home() {
         <>
                 <nav className="navbar row m-0">
                     <div className="col-12 col-md-4 col-xl-4 mb-2" >
-                        <button data-bs-target="#addCvModal" data-bs-toggle="modal" className="option-link"><i className="fa fa-file-text" /> Novo Currículo</button>
+                        <button data-bs-target="#addCvModal" data-bs-toggle="modal" className="option-link"><i className="fa fa-plus" /> Novo Currículo</button>
                     </div>
                     <div className="col-12 col-md-4 col-xl-3 mt-2" >
                         <Pagination page={cvPage} onPageChange={handlePageChange} />
@@ -74,8 +75,10 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }
 
-export default Home;
+export default CvList;
+

@@ -1,6 +1,7 @@
 export type Cv = {
     id: number;
     name: string;
+    jobTitle: string;
     description: string;
     image: string;
     phone: string;
