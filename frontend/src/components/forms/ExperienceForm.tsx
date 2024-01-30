@@ -45,7 +45,7 @@ export function ExperienceAddForm({ id: cvId }: Props) {
     }
 
     return (
-        <form className=" form-container m-0" onSubmit={handleSubmit}>
+        <form className=" form-container" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="jobTitle">Cargo: </label>
                 <input type="text" className="form-control" id="jobTitle" />
@@ -117,28 +117,28 @@ export function ExperienceEditForm({ id: experienceId }: Props) {
     }
 
     return (
-        <form className=" form-container m-0 row" onSubmit={handleSubmit}>
-            <div className="form-group col-6">
+        <form className=" form-container" onSubmit={handleSubmit}>
+            <div className="form-group">
                 <label htmlFor="jobTitle">Cargo: </label>
                 <input type="text" className="form-control" id="jobTitle" defaultValue={experience?.jobTitle} />
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="company">Empresa: </label>
                 <input type="text" className="form-control" id="company" defaultValue={experience?.company}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="workingDay">Jornada: </label>
                 <input className="form-control" id="workingDay" defaultValue={experience?.workingDay}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="startDate">Data inicial: </label>
                 <input type="date" className="form-control" id="startDate" defaultValue={experience?.startDate}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="endDate">Data final: </label>
                 <input type="date" className="form-control form-group" id="endDate" defaultValue={experience?.endDate}/>
             </div>

@@ -2,7 +2,7 @@ package com.altercode.gerenciadorcurriculo.controllers;
 
 import com.altercode.gerenciadorcurriculo.dto.ExperienceDto;
 import com.altercode.gerenciadorcurriculo.entities.Cv;
-import com.altercode.gerenciadorcurriculo.services.ExperienceService;
+import com.altercode.gerenciadorcurriculo.services.interf.ExperienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

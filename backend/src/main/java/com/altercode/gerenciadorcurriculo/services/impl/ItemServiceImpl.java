@@ -1,13 +1,11 @@
-package com.altercode.gerenciadorcurriculo.services;
+package com.altercode.gerenciadorcurriculo.services.impl;
 
-import com.altercode.gerenciadorcurriculo.dto.ExperienceDto;
 import com.altercode.gerenciadorcurriculo.dto.ItemDto;
-import com.altercode.gerenciadorcurriculo.entities.Cv;
-import com.altercode.gerenciadorcurriculo.entities.Experience;
 import com.altercode.gerenciadorcurriculo.entities.Item;
 import com.altercode.gerenciadorcurriculo.entities.Section;
 import com.altercode.gerenciadorcurriculo.repositories.ItemRepository;
 import com.altercode.gerenciadorcurriculo.repositories.SectionRepository;
+import com.altercode.gerenciadorcurriculo.services.interf.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class ItemService {
+public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemRepository itemRepository;
@@ -24,16 +22,19 @@ public class ItemService {
     @Autowired
     private SectionRepository sectionRepository;
 
+    @Override
     public Page<ItemDto> findItemBySection(Section section, Pageable pageable) {
         Page<Item> find = itemRepository.findItemBySection(section, pageable);
         return find.map(ItemDto::new);
     }
 
+    @Override
     public ItemDto findById(Long id) {
         Item find = itemRepository.findById(id).orElseThrow();
         return new ItemDto(find);
     }
 
+    @Override
     public ItemDto saveItem(ItemDto dto) {
         Section section = sectionRepository.findById(dto.getSectionId()).orElseThrow();
 
@@ -47,6 +48,7 @@ public class ItemService {
         return new ItemDto(itemRepository.saveAndFlush(add));
     }
 
+    @Override
     public ItemDto updateItem(ItemDto dto) {
         Item edit = itemRepository.findById(dto.getId()).orElseThrow();
         edit.setId(edit.getId());
@@ -57,6 +59,7 @@ public class ItemService {
         return new ItemDto(itemRepository.save(edit));
     }
 
+    @Override
     public void deleteItem(Long id) {
         this.itemRepository.deleteById(id);
     }

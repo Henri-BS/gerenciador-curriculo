@@ -1,12 +1,11 @@
-package com.altercode.gerenciadorcurriculo.services;
+package com.altercode.gerenciadorcurriculo.services.impl;
 
-import com.altercode.gerenciadorcurriculo.dto.ExperienceDto;
 import com.altercode.gerenciadorcurriculo.dto.SectionDto;
 import com.altercode.gerenciadorcurriculo.entities.Cv;
-import com.altercode.gerenciadorcurriculo.entities.Experience;
 import com.altercode.gerenciadorcurriculo.entities.Section;
 import com.altercode.gerenciadorcurriculo.repositories.CvRepository;
 import com.altercode.gerenciadorcurriculo.repositories.SectionRepository;
+import com.altercode.gerenciadorcurriculo.services.interf.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class SectionService {
+public class SectionServiceImpl implements SectionService {
 
     @Autowired
     private SectionRepository sectionRepository;
@@ -23,16 +22,19 @@ public class SectionService {
     @Autowired
     private CvRepository cvRepository;
 
+    @Override
     public Page<SectionDto> findSectionByCv(Cv cv, Pageable pageable) {
         Page<Section> find = sectionRepository.findSectionByCv(cv, pageable);
         return find.map(SectionDto::new);
     }
 
+    @Override
     public SectionDto findById(Long id) {
         Section find = sectionRepository.findById(id).orElseThrow();
         return new SectionDto(find);
     }
 
+    @Override
     public SectionDto saveSection(SectionDto dto) {
         Cv cv = cvRepository.findById(dto.getCvId()).orElseThrow();
 
@@ -44,6 +46,7 @@ public class SectionService {
         return new SectionDto(sectionRepository.saveAndFlush(add));
     }
 
+    @Override
     public SectionDto updateSection(SectionDto dto) {
         Section edit = sectionRepository.findById(dto.getId()).orElseThrow();
         edit.setId(edit.getId());
@@ -52,6 +55,7 @@ public class SectionService {
         return new SectionDto(sectionRepository.save(edit));
     }
 
+    @Override
     public void deleteSection(Long id) {
         this.sectionRepository.deleteById(id);
     }

@@ -49,7 +49,7 @@ export function ItemMdCard({ item }: ItemProps) {
 
             <div className="modal fade" id="itemEditModal" role={"dialog"}>
                 <div className="modal-dialog" role={"document"}>
-                    <div className="modal-content">
+                    <div className="modal-content modal-lg">
                         <div className="modal-header">
                             <label className="modal-title">Editar Item </label>
                             <button className="close" data-bs-dismiss="modal" aria-label="Close">

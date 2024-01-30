@@ -43,7 +43,7 @@ export function EducationAddForm({ id: cvId }: Props) {
     }
 
     return (
-        <form className=" form-card m-0" onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="course">Curso: </label>
                 <input className="form-control" id="course" />
@@ -148,7 +148,7 @@ export function EducationEditForm({ id: educationId }: Props) {
                 <input type="date" className="form-control" id="startDate" defaultValue={education?.startDate}/>
             </div>
 
-            <div className="form-group col-6">
+            <div className="form-group">
                 <label htmlFor="endDate">Data final: </label>
                 <input type="date" className="form-control form-group" id="endDate" defaultValue={education?.endDate}/>
             </div>

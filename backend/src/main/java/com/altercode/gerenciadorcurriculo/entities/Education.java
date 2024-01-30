@@ -1,6 +1,5 @@
 package com.altercode.gerenciadorcurriculo.entities;
 
-
 import javax.persistence.*;
 import java.time.LocalDate;
 

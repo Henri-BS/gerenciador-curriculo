@@ -27,7 +27,8 @@ function CvList() {
     }, [pageNumber, value]);
 
     return (
-        <>
+        <> 
+        <div className="container">
                 <nav className="navbar row m-0">
                     <div className="col-12 col-md-4 col-xl-4 mb-2" >
                         <button data-bs-target="#addCvModal" data-bs-toggle="modal" className="option-link"><i className="fa fa-plus" /> Novo Currículo</button>
@@ -48,7 +49,7 @@ function CvList() {
                         </div>
                     </div>
                 </nav >
-            <div className="container">
+           
 
 
                 <div className="row">
