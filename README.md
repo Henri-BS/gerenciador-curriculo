@@ -7,11 +7,12 @@
 - [Introdução](#introducao)
 - [Ferramentas e Bibliotecas](#ferramentas-e-bibliotecas)
 - [Criação e Configuração do Projeto](#criacao-e-configuracao-do-projeto)
-  * [Spring](#spring)
+  * [Spring Initilizr](#spring)
   * [IntelliJ](#intellij)
   * [Estrutura de Pastas do Back-end](#estrutura-de-pastas-do-backend)
-
-<a id="introducao" name="introducao"></a> 
+  * [ReactJs](#reactjs)
+  * [Estrutura de Pastas do Front-end](#estrutura-de-pastas-do-frontend)
+    
 ## Introdução
 
 Este projeto representa uma atividade complementar para a disciplina Programação Web para Backend do cusro de
@@ -22,7 +23,6 @@ conceitos, práticas e tecnologias que foram estudadas ao longo da disciplina. A
 deverá ser capaz de receber dados de um banco de dados em memória para   
 criar, alterar, deletar, listar e buscar por currículos e suas respectivas seções de informação.
 
-<a id="ferramentas-e-bibliotecas" name="ferramentas-e-bibliotecas"></a> 
 ## Ferramentas e Bibliotecas
 
 | Backend                                                                               | Frontend                                                            | Api                                 |
@@ -37,11 +37,9 @@ criar, alterar, deletar, listar e buscar por currículos e suas respectivas seç
 | [H2 Database](https://h2database.com/html/main.html)                                  | [React Router](https://create-react-app.dev/docs/adding-a-router/)  |                                     |
 
 
-<a id="criacao-e-configuracao-do-projeto" name="criacao-e-configuracao-do-projeto"></a>
 ## Criação e Configuração do Projeto
 
-<a id="spring" name="spring"></a>
-#### Spring
+#### Spring Initializr
 
 Para poder utilizar o Spring Framework foi feita a criação de um arquivo zip atráves do
 site [Spring Initializr](https://start.spring.io/;), o arquivo irá conter as configurações e dependências necessárias
@@ -50,7 +48,6 @@ figura abaixo.
 
 ![Spring Initializr](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/spring-init.png)
 
-<a id="intellij" name="intellij"></a>
 #### IntelliJ
 
 Com o Java JDK já intalado e configurado nas variáveis de ambiente e com o intelliJ instalado, o arquivo backend poderá
@@ -60,7 +57,6 @@ conforme mostrado na figura.
 
 ![IntelliJ Run](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/intellij-run.png)
 
-<a id="estrutura-de-pastas-do-backend"> </a>
 #### Estrutura de Pastas do Back-end 
 Alguns arquivos basicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
 que ficará respondável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
@@ -95,3 +91,30 @@ chamadas interf e impl. Além disso será criada uma camada chamada config que c
 Security. A figura abaixo apresenta o resultado final da estrutura de pastas do Back-end.
 
 ![Back-end Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/backend-folders.png)
+
+#### ReactJs
+
+Para que a aplicação TypeScript seja executada no Front-end será preciso realizar o download
+do [Node](https://nodejs.org/en), após o download é possível ver em um terminal a versão baixada através do comando
+```node -v```, com isso já é possível fazer comandos em um terminal no diretório do projeto em uma pasta nomeada '
+frontend' que será a aplicação React, o terminal usado será o [Git Bash](https://git-scm.com/download/win). A tabela a
+seguir apresenta a sequência de comandos para criar o projeto React e para instalar as biblitecas do Front-end.
+
+| Ação                                               | Comando                                              |
+|----------------------------------------------------|------------------------------------------------------|
+| Instalação do yarn                                 | npm install --global yarn                            |
+| Cria projeto ReactJs com TypeScript                | yarn create react-app frontend --template typescript |
+| Adiciona react router para roteamento de página    | yarn add react-router-dom                            |
+| Adiciona axios como biblioteca de requisições HTTP | yarn add axios                                       |
+| Adiciona bootstrap como biblioteca de estilização  | yarn add bootstrap                                   |
+| Adiciona moment como biblioteca de datas           | yarn add moment                                      |
+
+#### Estrutura de Pastas do Front-end
+
+Assim como foi feita a organização na pasta _backend_, o mesmo processo será feito na pasta _frontend_, na pasta
+tsconfig.json será adicionada a propriedade ``"baseUrl": "./src"`` para definir a base da url para os _imports_, algumas
+pastas serão inclusas como: assests, components, pages, utils, types, routes e entre outras; bem como alguns arquivos
+serão adicionados, alterados ou deletados. A estrutura final da pasta _frontend_ pode ser vista na figura abaixo.
+
+![Front-end Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/frontend-folders.png)
+
