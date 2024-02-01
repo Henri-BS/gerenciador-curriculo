@@ -7,7 +7,7 @@
 - [Introdução](#introducao)
 - [Ferramentas e Bibliotecas](#ferramentas-e-bibliotecas)
 - [Criação e Configuração do Projeto](#criacao-e-configuracao-do-projeto)
-  * [Spring Initilizr](#spring)
+  * [Spring Initializr](#spring)
   * [IntelliJ](#intellij)
   * [Estrutura do Back-end](#estrutura-do-backend)
   * [ReactJs](#reactjs)
@@ -53,7 +53,7 @@ criar, alterar, deletar, listar e buscar por currículos e suas respectivas seç
 
 ## Criação e Configuração do Projeto
 
-#### Spring Initializr
+### Spring Initializr
 
 Para poder utilizar o Spring Framework foi feita a criação de um arquivo zip atráves do
 site [Spring Initializr](https://start.spring.io/;), o arquivo irá conter as configurações e dependências necessárias
@@ -62,7 +62,7 @@ figura abaixo.
 
 ![Spring Initializr](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/spring-init.png)
 
-#### IntelliJ
+### IntelliJ
 
 Com o Java JDK já intalado e configurado nas variáveis de ambiente e com o intelliJ instalado, o arquivo backend poderá
 ser aberto na IDE através do menu File > Open. Ao abrir o projeto será necessário indicar a versão do JDK que foi
@@ -71,7 +71,7 @@ conforme mostrado na figura.
 
 ![IntelliJ Run](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/intellij-run.png)
 
-#### Estrutura do Back-end 
+### Estrutura do Back-end
 Alguns arquivos basicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
 que ficará respondável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
 abaixo indicando que o perfil de 'test' está ativo.
@@ -106,7 +106,7 @@ Security. A figura abaixo apresenta o resultado final da estrutura de pastas do 
 
 ![Back-end Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/backend-folders.png)
 
-#### ReactJs
+### ReactJs
 
 Para que a aplicação TypeScript seja executada no Front-end será preciso realizar o download
 do [Node](https://nodejs.org/en), após o download é possível ver em um terminal a versão baixada através do comando
@@ -124,7 +124,7 @@ seguir apresenta a sequência de comandos para criar o projeto React e para inst
 | Adiciona bootstrap como biblioteca de estilização  | yarn add bootstrap                                   |
 | Adiciona moment como biblioteca de datas           | yarn add moment                                      |
 
-#### Estrutura do Front-end
+### Estrutura do Front-end
 
 Assim como foi feita a organização na pasta _backend_, o mesmo processo será feito na pasta _frontend_, na pasta
 tsconfig.json será adicionada a propriedade ``"baseUrl": "./src"`` para definir a base da url para os _imports_, algumas
