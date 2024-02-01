@@ -20,7 +20,7 @@
     - [Repository](#repository)
     - [Sevice e ServiceImpl](#service-e-serviceimpl)
     - [Controller](#controller)
-  * [Frunções e Procedimentos](#funcoes-e-procedimentos)
+  * [Funções e Procedimentos](#funcoes-e-procedimentos)
     - [FindAll](#findall)
     - [FindById](#findbyid)
     - [Save](#save)
