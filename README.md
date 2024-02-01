@@ -41,23 +41,23 @@ criar, alterar, deletar, listar e buscar por currículos e suas respectivas seç
 
 | Backend                                                                               | Frontend                                                            | Api                                 |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------|
-| [Java](https://docs.oracle.com/en/java/javase/17/)                                    | [TypeScript](https://www.typescriptlang.org/)                       | [Postman](https://www.postman.com/) |
-| [IntelliJ Idea](https://www.jetbrains.com/idea/)                                      | [VS Code](https://code.visualstudio.com/)                           |                                     |
-| [Maven](https://maven.apache.org/)                                                    | [Yarn](https://yarnpkg.com/)                                        |                                     |
-| [Spring Boot](https://spring.io/projects/spring-boot)                                 | [ReactJs](https://pt-br.legacy.reactjs.org/)                        |                                     |
-| [Spring Data Jpa](https://spring.io/projects/spring-data-jpa)                         | [Bootstrap](https://getbootstrap.com/)                              |                                     |
-| [Spring Web](https://docs.spring.io/spring-boot/docs/current/reference/html/web.html) | [MomentJs](https://momentjs.com/)                                   |                                     |
-| [Spring Security](https://spring.io/projects/spring-security)                         | [Axios](https://axios-http.com/docs/intro)                          |                                     |
-| [H2 Database](https://h2database.com/html/main.html)                                  | [React Router](https://create-react-app.dev/docs/adding-a-router/)  |                                     |
+| Linguagem: [Java](https://docs.oracle.com/en/java/javase/17/)                                    | Linguagem: [TypeScript](https://www.typescriptlang.org/)                       | Plataforma API: [Postman](https://www.postman.com/) |
+| IDE: [IntelliJ Idea](https://www.jetbrains.com/idea/)                                      | IDE: [VS Code](https://code.visualstudio.com/)                           |                                     |
+| Build: [Maven](https://maven.apache.org/)                                                    | Build: [Yarn](https://yarnpkg.com/)                                        |                                     |
+| Framework: [Spring Boot](https://spring.io/projects/spring-boot)                                 | Framework: [ReactJs](https://pt-br.legacy.reactjs.org/)                        |                                     |
+| Persistência: [Spring Data Jpa](https://spring.io/projects/spring-data-jpa)                         | Estilização: [Bootstrap](https://getbootstrap.com/)                              |                                     |
+| Ferramentas Web: [Spring Web](https://docs.spring.io/spring-boot/docs/current/reference/html/web.html) | Datas: [MomentJs](https://momentjs.com/)                                   |                                     |
+| Segurança: [Spring Security](https://spring.io/projects/spring-security)                         | Requisições: [Axios](https://axios-http.com/docs/intro)                          |                                     |
+| Banco de Dados: [H2 Database](https://h2database.com/html/main.html)                                  | Roteamento: [React Router](https://create-react-app.dev/docs/adding-a-router/)  |                                     |
 
 
 ## Criação e Configuração do Projeto
 
 ### Spring Initializr
 
-Para poder utilizar o Spring Framework foi feita a criação de um arquivo zip atráves do
+Para poder utilizar o Spring Framework deverá ser feita a criação de um arquivo zip através do
 site [Spring Initializr](https://start.spring.io/;), o arquivo irá conter as configurações e dependências necessárias
-para o projeto Spring, este arquivo foi descompactado e renomeado para 'backend'. As configurações podem ser vista na
+para o projeto Spring, este arquivo deverá ser descompactado e renomeado para 'backend'. As configurações do arquivo podem ser vista na
 figura abaixo.
 
 ![Spring Initializr](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/spring-init.png)
@@ -73,7 +73,7 @@ conforme mostrado na figura.
 
 ### Estrutura do Backend
 Alguns arquivos basicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
-que ficará respondável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
+que ficará responsável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
 abaixo indicando que o perfil de 'test' está ativo.
 
 ```
@@ -82,7 +82,7 @@ spring.jpa.open-in-view=false
 ```
 
 Outro arquivo importante ser o _application-test.properties_, que irá conter as informações do banco em memória H2 e
-esse arquivo íra representar o perfil de _test_ mostrado anteriormente, nele haverá dados de usuário e senha do banco
+esse arquivo representará o perfil de _test_ mostrado anteriormente, nele haverá dados de usuário e senha do banco
 como pode ser visto no código abaixo.
 
 ```
