@@ -71,7 +71,7 @@ conforme mostrado na figura.
 
 ![IntelliJ Run](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/intellij-run.png)
 
-### Estrutura do Back-end
+### Estrutura do Backend
 Alguns arquivos basicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
 que ficará respondável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
 abaixo indicando que o perfil de 'test' está ativo.
@@ -124,7 +124,7 @@ seguir apresenta a sequência de comandos para criar o projeto React e para inst
 | Adiciona bootstrap como biblioteca de estilização  | yarn add bootstrap                                   |
 | Adiciona moment como biblioteca de datas           | yarn add moment                                      |
 
-### Estrutura do Front-end
+### Estrutura do Frontend
 
 Assim como foi feita a organização na pasta _backend_, o mesmo processo será feito na pasta _frontend_, na pasta
 tsconfig.json será adicionada a propriedade ``"baseUrl": "./src"`` para definir a base da url para os _imports_, algumas
@@ -134,7 +134,7 @@ serão adicionados, alterados ou deletados. A estrutura final da pasta _frontend
 ![Front-end Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/frontend-folders.png)
 
 
-## Programação Back-end
+## Programação Backend
 
 ### Classes e Interfaces
 
