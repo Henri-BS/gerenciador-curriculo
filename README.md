@@ -26,12 +26,12 @@
     - [Save](#save)
     - [Update](#update)
     - [Delete](#delete)
-    
+
 ## Introdução
 
-Este projeto representa uma atividade complementar para a disciplina Programação Web para Backend do cusro de
+Este projeto representa uma atividade complementar para a disciplina Programação Web para Backend do curso de
 pós-graduação em Desenvolvimento Web para Back-End. A atividade consiste na elaboração de um projeto web para o
-geranciamento de currículos utilizando Java com a Spring Framework para a construção do Back-End, além disso também será
+gerenciamento de currículos utilizando Java com a Spring Framework para a construção do Back-End, além disso também será
 feita a integração com TypeScript e ReactJs para a criação do Front-End, o projeto também deverá incluir outros
 conceitos, práticas e tecnologias que foram estudadas ao longo da disciplina. Ao final do desenvolvimento a aplicação
 deverá ser capaz de receber dados de um banco de dados em memória para   
@@ -64,7 +64,7 @@ figura abaixo.
 
 ### IntelliJ
 
-Com o Java JDK já intalado e configurado nas variáveis de ambiente e com o intelliJ instalado, o arquivo backend poderá
+Com o Java JDK já instalado e configurado nas variáveis de ambiente e com o intelliJ instalado, o arquivo backend poderá
 ser aberto na IDE através do menu File > Open. Ao abrir o projeto será necessário indicar a versão do JDK que foi
 instalada e que também foi adicionada nas propriedades, isso pode ser feito selecionando Run > Edit Configurations
 conforme mostrado na figura.
@@ -72,7 +72,7 @@ conforme mostrado na figura.
 ![IntelliJ Run](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/intellij-run.png)
 
 ### Estrutura do Backend
-Alguns arquivos basicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
+Alguns arquivos básicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
 que ficará responsável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
 abaixo indicando que o perfil de 'test' está ativo.
 
@@ -112,7 +112,7 @@ Para que a aplicação TypeScript seja executada no Front-end será preciso real
 do [Node](https://nodejs.org/en), após o download é possível ver em um terminal a versão baixada através do comando
 ```node -v```, com isso já é possível fazer comandos em um terminal no diretório do projeto em uma pasta nomeada '
 frontend' que será a aplicação React, o terminal usado será o [Git Bash](https://git-scm.com/download/win). A tabela a
-seguir apresenta a sequência de comandos para criar o projeto React e para instalar as biblitecas do Front-end.
+seguir apresenta a sequência de comandos para criar o projeto React e para instalar as bibliotecas do Front-end.
 
 | Ação                                               | Comando                                              |
 |----------------------------------------------------|------------------------------------------------------|
@@ -138,23 +138,23 @@ serão adicionados, alterados ou deletados. A estrutura final da pasta _frontend
 
 ### Classes e Interfaces
 
-O conjunto de classes e intefaces abordadas no projeto forma baseadas com padrão MVC em conjunto com o padrões
-Repository e DTO resultando nos seguintes camadas: _Entity_, _Dto_, _Repository_, _Service_, _ServiceImpl_ e 
-_Controller_ e também a classe de configurações de sergurança do Spring a _SecurityConfig_. Alguns exemplos destas classes e interfaces poderão ser vistos a seguir, o link para a repectiva pasta de cada camada estará no título do tópico.
+O conjunto de classes e interfaces abordadas no projeto forma baseadas com padrão MVC em conjunto com o padrões
+Repository e DTO resultando nas seguintes camadas: _Entity_, _Dto_, _Repository_, _Service_, _ServiceImpl_ e
+_Controller_ e também a classe de configurações de segurança do Spring a _SecurityConfig_. Alguns exemplos destas classes e interfaces poderão ser vistos a seguir, o link para a respectiva pasta de cada camada estará no título do tópico.
 
 - #### [SecurityConfig](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/config/SecurityConfig.java)
 
-A implementação das propriedades do Spring Secutity será feita na classe SecurityConfig, está classe irá possuir dois
+A implementação das propriedades do Spring Security será feita na classe SecurityConfig, está classe irá possuir dois
 métodos importantes o `configure` para a proteção dos _endpoints_ com HTTP básico, bem como irá configurar o perfil
 _test_ do H2 e também o método `corsConfigurationSource` para configurar o CORS padrão do Spring.
 
 - #### [Entity](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/entities)
 
-A classe do tipo Entidade(Entity) irá representar os dados que serão persistidos no bancdo de dados H2, a classe será
+A classe do tipo Entidade(Entity) irá representar os dados que serão persistidos no banco de dados H2, a classe será
 definida como entidade através da anotação `@Entity` e irá se correlacionar com uma tabela através da anotação `@Table`
 onde será adicionado o atributo _name_ para indicar o nome da tabela. Além disso, os atributos da classe irão
 representar as colunas da tabela e poderão conter a anotação `@Column` para personalizar as características do atributo,
-támbem deverá haver um atributo específico chamado _id_ que será equivalente a chave primária no database e deverá
+também deverá haver um atributo específico chamado _id_ que será equivalente a chave primária no database e deverá
 conter as anotações `@Id` e `@GeneratedValue`. Neste projeto todas as classes de entidade seguiram este padrão conforme
 mostrado abaixo.
 
@@ -180,7 +180,7 @@ public class Cv {
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
     private final List<Section> sections = new ArrayList<>();
     
-    //contructors
+    //constructors
     //getters and setters
 }
 ```
@@ -215,8 +215,8 @@ private static final long serialVersionUID = 1L;
 
 - #### [Repository](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/repositories)
 
-Os métodos diponibilizados no Spring Data JPA poderão ser facilmente utilizado através da interface _Repository_, essa
-interface poderá ser definida como Repository ao receber a anotação `@Repository`, támbem será acrescentador a interface
+Os métodos disponibilizados no Spring Data JPA poderão ser facilmente utilizado através da interface _Repository_, essa
+interface poderá ser definida como Repository ao receber a anotação `@Repository`, também será acrescentador a interface
 um `extends JpaRepository<Entity, Long>` que permitirá que a classe _Entity_ especificada receba os métodos da JPA.
 
 ```
@@ -231,7 +231,7 @@ public interface CvRepository extends JpaRepository<Cv, Long>{
 - #### [Service](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/service/interf) e [ServiceImpl](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/services/impl)
 
 A camada Service será reapresentada tanto por classes quanto por interfaces, a interface Service permitirá que os
-métodos relacionados a lógica de négocios sejam declarados.
+métodos relacionados a lógica de negócios sejam declarados.
 
 ```
 // Exemplo de declaração de uma interface ServiceImpl
@@ -241,7 +241,7 @@ public interface CvService {
 
 <br/>
 Já nas classes do tipo _ServiceImpl_ serão implementados os métodos das suas respectivas interfaces, também será
-adicionado a anotação `@Service` para definir a classe como _Service_ e a será acresentado também a anotação `@Transacitional` para declarar a semântica de transação.
+adicionado a anotação `@Service` para definir a classe como _Service_ e a será acrescentado também a anotação `@Transacitional` para declarar a semântica de transação.
 
 ```
 // Exemplo de uma classe declaração de ServiceImpl
@@ -257,10 +257,10 @@ public class CvServiceImpl implements CvService {
 
 - #### [Controller](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/controllers)
 
-Por fim as classes `Controllers` irão reprentar o controlador da aplicação, possuindo as nuances de persistência e o
+Por fim as classes `Controllers` irão representar o controlador da aplicação, possuindo as nuances de persistência e o
 mapeamento de solicitações da Web, para isso será acrescentado a anotação `@RestContoller` para definir a classe como
 controlador e a a notação `@RequestMapping` para mapear as solicitações. A classe também irá conter um atributo do tipo
-interface `Service` com a anotação `@Autowired` esse atributo posibilitará a chamada dos métodos definidos na interface
+interface `Service` com a anotação `@Autowired` esse atributo possibilitará a chamada dos métodos definidos na interface
 `Service`.
 
 ```
@@ -282,7 +282,7 @@ exemplos.
 
 - #### FindAll
 
-A interface Repository poderá oferecer médotos para listagem com busca inclusa através da Jpa, neste projeto as os
+A interface Repository poderá oferecer métodos para listagem com busca inclusa através da Jpa, neste projeto as os
 métodos personalizados para listagem serão declarados nas interfaces Repository, poderão ser do tipo `List<Entity>`
 ou `Page<Entity>` o tipo Page também recebe o parâmetro `Pageable pageable`, o método também irá conter a
 anotação `@Query` para criar instruções SQL definindo o tipo de _case_, a ordem e o parâmetro de busca.
@@ -304,7 +304,7 @@ As interfaces do tipo Service terão métodos de listagem declarados com o tipo 
 
 A função _findAll_ em uma classe _ServiceImpl_ será implementada de sua interface _Service_ através da
 anotação `@Override` e a anotação `@Transactional(readOnly = true)` para definir a transação apenas como leitura, também
-irá chamar o médoto _findAll_ da interface _Repository_.
+irá chamar o método _findAll_ da interface _Repository_.
 
 ```
 // Exemplo de função de listagem na classe ServiceImpl
@@ -319,7 +319,7 @@ irá chamar o médoto _findAll_ da interface _Repository_.
 A função _findAll_ em uma classe de _Controller_ deverão conter a anotação `@GetMapping` com o atributo _name_ para
 mapear a solicitação como _GET_, caso tenha um parâmetro de busca deve ser adicionado a anotação `@RequestParam` no
 atributo para definir um parâmetro na solicitação, a função também irá chamar o método da interface _Service_ para usar
-como argumento, um `ResponseEntity<>` poderá ser adiconado ao tipo do método para retornar o status como _OK_.
+como argumento, um `ResponseEntity<>` poderá ser adicionado ao tipo do método para retornar o status como _OK_.
 
 ```
 // Exemplo de função de listagem na classe Controller
@@ -344,7 +344,7 @@ um `Long id`.
 
 A função _findById_ em uma classe _ServiceImpl_ será implementada de sua interface _Service_ através da
 anotação `@Override` e a anotação `@Transactional(readOnly = true)` para definir a transação apenas como leitura, também
-irá chamar o médoto _findById_ da interface Repository.
+irá chamar o método _findById_ da interface Repository.
 
 ```
 // Exemplo da função findById na classe ServiceImpl
@@ -359,7 +359,7 @@ irá chamar o médoto _findById_ da interface Repository.
 A função _findById_ em uma classe _Controller_ deverá conter a anotação `@GetMapping` com o atributo _name_ para mapear
 a solicitação como _GET_, no parâmetro `Long id` deve ser adicionado a anotação `@PathVariable` para incluir o _id_
 diretamente na solicitação, a função também irá chamar o método da interface _Service_ para usar como argumento,
-um `ResponseEntity<>` poderá ser adiconado ao tipo do método para retornar o status como _OK_.
+um `ResponseEntity<>` poderá ser adicionado ao tipo do método para retornar o status como _OK_.
 
 ```
 // Exemplo da função findById na classe Controller
@@ -406,7 +406,7 @@ os métodos _getters_ de uma classe _Dto_ correspondente como argumento.
 A função _save_ em uma classe _Controller_ deverá conter a anotação `@PostMapping` com o atributo _name_ para mapear a
 solicitação como _POST_, no parâmetro `Dto dto` deve ser adicionado a anotação `@RequestBody` para indicar o corpo da
 requisição, a função também irá chamar o método da interface _Service_ para usar como argumento e um `ResponseEntity<>`
-poderá ser adiconado para indicar o _body_ e retornar o status como _CREATE_.
+poderá ser adicionado para indicar o _body_ e retornar o status como _CREATE_.
 
 ```
 // Exemplo da função save na classe Controller
@@ -452,7 +452,7 @@ getters_ de uma classe _Dto_ correspondente como argumento.
 A função _update_ em uma classe _Controller_ deverá conter a anotação `@PutMapping` com o atributo _name_ para mapear a
 solicitação como _PUT_, no parâmetro `Dto dto` deve ser adicionado a anotação `@RequestBody` para indicar o corpo da
 requisição, a função também irá chamar o método da interface _Service_ para usar como argumento e um `ResponseEntity<>`
-poderá ser adiconado para indicar o _body_ e retornar o status como _OK_.
+poderá ser adicionado para indicar o _body_ e retornar o status como _OK_.
 
 ```
 // Exemplo da função save na classe Controller
@@ -473,7 +473,7 @@ um `Long id`.
     void deleteCv(Long id);
 ```
 
-Oprocedimento _delete_ em uma classe _ServiceImpl será implementado de sua interface _Service_ através da
+O procedimento _delete_ em uma classe _ServiceImpl será implementado de sua interface _Service_ através da
 anotação `@Override` e terá como argumento o método _deleteById_ da interface _Repository_.
 
 ```
@@ -485,7 +485,7 @@ anotação `@Override` e terá como argumento o método _deleteById_ da interfac
 ```
 
 A função _delete_ em uma classe _Controller_ deverá conter a anotação `@DeleteMapping` com o atributo _name_ para mapear
-a solicitação como _DELETE_ e támbem a anotação `@ResponseStatus` que irá mostrar o status da requisição, no
+a solicitação como _DELETE_ e também a anotação `@ResponseStatus` que irá mostrar o status da requisição, no
 parâmetro `Long id` deve ser adicionado a anotação `@PathVariable` para incluir o _id_
 diretamente na solicitação, a função também irá chamar o método da interface _Service_ para usar como argumento.
 
@@ -499,4 +499,3 @@ diretamente na solicitação, a função também irá chamar o método da interf
 ```
 
 <br/>
-
