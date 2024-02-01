@@ -3,6 +3,7 @@ package com.altercode.gerenciadorcurriculo.controllers;
 import com.altercode.gerenciadorcurriculo.dto.ItemDto;
 import com.altercode.gerenciadorcurriculo.entities.Section;
 import com.altercode.gerenciadorcurriculo.services.impl.ItemServiceImpl;
+import com.altercode.gerenciadorcurriculo.services.interf.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
 
     @Autowired
-    private ItemServiceImpl itemService;
+    private ItemService itemService;
 
     @GetMapping("/page/{section}")
     public ResponseEntity<Page<ItemDto>> findItemBySection(@PathVariable Section section, Pageable pageable) {

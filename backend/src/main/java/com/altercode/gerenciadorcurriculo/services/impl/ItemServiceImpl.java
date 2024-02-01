@@ -23,12 +23,14 @@ public class ItemServiceImpl implements ItemService {
     private SectionRepository sectionRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ItemDto> findItemBySection(Section section, Pageable pageable) {
         Page<Item> find = itemRepository.findItemBySection(section, pageable);
         return find.map(ItemDto::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ItemDto findById(Long id) {
         Item find = itemRepository.findById(id).orElseThrow();
         return new ItemDto(find);

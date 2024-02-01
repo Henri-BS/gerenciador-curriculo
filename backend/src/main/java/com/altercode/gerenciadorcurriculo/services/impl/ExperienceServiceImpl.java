@@ -23,12 +23,14 @@ public class ExperienceServiceImpl implements ExperienceService {
     private CvRepository cvRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ExperienceDto> findExperienceByCv(Cv cv, Pageable pageable) {
         Page<Experience> find = experienceRepository.findExperienceByCv(cv, pageable);
         return find.map(ExperienceDto::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ExperienceDto findById(Long id) {
         Experience find = experienceRepository.findById(id).orElseThrow();
         return new ExperienceDto(find);

@@ -8,14 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CvServiceImpl implements CvService {
 
     @Autowired
     private CvRepository cvRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<CvDto> findAllCvs(String name, Pageable pageable) {
         Page<Cv> find = cvRepository.findAllCvs(name, pageable);
         for (Cv cv : find) {
@@ -28,6 +31,7 @@ public class CvServiceImpl implements CvService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public CvDto findById(Long id) {
         Cv find = cvRepository.findById(id).orElseThrow();
         return new CvDto(find);

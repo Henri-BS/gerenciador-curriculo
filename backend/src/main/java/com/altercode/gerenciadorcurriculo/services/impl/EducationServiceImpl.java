@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class EducationServiceImpl implements EducationService {
 
     @Autowired
@@ -21,12 +23,14 @@ public class EducationServiceImpl implements EducationService {
     private CvRepository cvRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<EducationDto> findEducationByCv(Cv cv, Pageable pageable) {
         Page<Education> find = educationRepository.findEducationByCv(cv, pageable);
         return find.map(EducationDto::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public EducationDto findById(Long id) {
         Education find = educationRepository.findById(id).orElseThrow();
         return new EducationDto(find);

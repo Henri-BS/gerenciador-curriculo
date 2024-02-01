@@ -1,7 +1,7 @@
 package com.altercode.gerenciadorcurriculo.controllers;
 
 import com.altercode.gerenciadorcurriculo.dto.CvDto;
-import com.altercode.gerenciadorcurriculo.services.impl.CvServiceImpl;
+import com.altercode.gerenciadorcurriculo.services.interf.CvService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,35 +14,35 @@ import org.springframework.web.bind.annotation.*;
 public class CvController {
 
     @Autowired
-    private CvServiceImpl cvServiceImpl;
+    private CvService cvService;
 
     @GetMapping("/page")
     public ResponseEntity<Page<CvDto>> findAllCvs(@RequestParam(defaultValue = "") String name, Pageable pageable) {
-        Page<CvDto> page = cvServiceImpl.findAllCvs(name, pageable);
+        Page<CvDto> page = cvService.findAllCvs(name, pageable);
         return ResponseEntity.ok(page);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CvDto> findById(@PathVariable Long id) {
-        CvDto find = cvServiceImpl.findById(id);
+        CvDto find = cvService.findById(id);
         return ResponseEntity.ok(find);
     }
 
     @PostMapping("/save")
     public ResponseEntity<CvDto> saveCv(@RequestBody CvDto dto) {
-        CvDto add = cvServiceImpl.saveCv(dto);
+        CvDto add = cvService.saveCv(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
     public ResponseEntity<CvDto> updateCv(@RequestBody CvDto dto) {
-        CvDto edit = cvServiceImpl.updateCv(dto);
+        CvDto edit = cvService.updateCv(dto);
         return new ResponseEntity<>(edit, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCv(@PathVariable Long id) {
-        this.cvServiceImpl.deleteCv(id);
+        this.cvService.deleteCv(id);
     }
 }

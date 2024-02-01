@@ -23,12 +23,14 @@ public class SectionServiceImpl implements SectionService {
     private CvRepository cvRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<SectionDto> findSectionByCv(Cv cv, Pageable pageable) {
         Page<Section> find = sectionRepository.findSectionByCv(cv, pageable);
         return find.map(SectionDto::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public SectionDto findById(Long id) {
         Section find = sectionRepository.findById(id).orElseThrow();
         return new SectionDto(find);
