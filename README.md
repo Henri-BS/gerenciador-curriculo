@@ -7,7 +7,7 @@
 - [Introdução](#introducao)
 - [Ferramentas e Bibliotecas](#ferramentas-e-bibliotecas)
 - [Criação e Configuração do Projeto](#criacao-e-configuracao-do-projeto)
-  * [Spring Initializr](#spring)
+  * [Spring Initializr](#spring-initializr)
   * [IntelliJ](#intellij)
   * [Estrutura do Back-end](#estrutura-do-backend)
   * [ReactJs](#reactjs)
