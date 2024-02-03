@@ -26,6 +26,10 @@
     - [Save](#save)
     - [Update](#update)
     - [Delete](#delete)
+ * [H2 Database e Postman](#h2-database-e-postman)
+    - [Manipulação de Dados com H2](#manipulacao-de-dados-com-h2)
+    - [Teste de Requisições com Postman](#teste-de-requisicoes-com-postman)
+    
 
 ## Introdução
 
@@ -502,42 +506,33 @@ diretamente na solicitação, a função também irá chamar o método da interf
 
 ### H2 Database e Postman
 
-- #### Instruções SQL no H2
+- #### Manipulação de dados com H2
 
 Através do banco de dados H2 incorporado no projeto, será possível visualizar e manipular dados presentes nos _scripts_
 do arquivo `application-test.properties`, assim como também será possível utilizar a interface gráfica do banco. Para
 ter acesso ao H2 será preciso exeutar a aplicação através do botaão _Run_ e logo em seguida acessar no navegador a
-url: `http://localhost:8080/h2-console` e nesta página será solicitado os dados definidos no arquivo do H2 para poder
-realizar o login.
+url: `http://localhost:8080/h2-console` refenete a página de login e nesta página serão solicitado os dados de login definidos no arquivo do H2 como pode ser visto na figura abaixo.
 
-**Tela de Login do H2.**
-
-![H2 Login](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2-login.png)
+![H2 Login](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2_login.png)
 
 Com a conexão estabelecida, a página será redirecionada para a interface principal do H2 que é constituida pelas
 informações de esquema do banco de dados que ficam no lado esquerdo, a caixa de texto para as instruções ao centro e
 logo abaixo a área dos resultados. Com isso banco H2 poderá ser utilizado para receber instruções SQL e apresentar os
-resultados, para fazer uma instrução do tipo `SELECT` para visulizar os registros de uma tabela, por exemplo, pode-se
+resultados, para fazer uma instrução do tipo `SELECT` e visulizar os registros de uma tabela como mostrado na próxima figura, pode-se
 escrever a instrução `SELECT * FROM tb_name;` na caixa de texto ou simplemente clicar numa tabela específica na aba de
 esquemas.
 
-**Instrução para buscar todos os currículos no H2.**
+![H2 Select](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2_select.png)
 
-![H2 Select](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2-select.png)
+O h2 também permite a criação de um novo registro, que poderá ser feita através do comando `INSERT INTO`, ao inserir um
+novo registro o banco de dados informará sobre a condição da inserção com uma mensagem.
 
-O h2 também permite a criação de um novo registro, que poderá ser feita através do comando _INSERT INTO_, ao inserir um
-novo registro o banco de dados informará sobre a condição da inserção logo abaixo.
-
-**Instrução para inserir um novo currículo no H2.**
-
-![H2 Insert](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2-insert.png)
+![H2 Insert](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2_insert.png)
 
 - #### Teste de Requisições
 
 A plaraforma de API Postman poderá ser usada para de testar as requisições da aplicação, na plataforma poderá ser feita
-a criação de _collectitons_ que irão agregar as requisições que poderão ser organizadas em pastas
-
-**Coleção de requisições no Postman.**
+a criação de _collectitons_ que irão agregar as requisições que poderão ser organizadas em pastas.
 
 ![Postman Folder](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/postman-folder.png)
 
@@ -545,9 +540,7 @@ Para testar uma requisição será necessário selecionar o tipo e adicionar a U
 adicionar a URL que corresponde a operação criada no backend e mapeada através da camada de _Controller_, ou seja,
 deverá ser adicionado o valor atributo _name_ contida na anotação do tipo _Mapping_ da função, caso necessário também
 pode-se incluir parâmetros de busca na url. Feito isso, o postman retornará o resultado em formato JSON, uma requisição
-do tipo _DELETE_ segue o mesmo processo, mas retornar apenas o _status_.
-
-**Resiquição da função de buscar todos os currículos `findAll`.**
+do tipo _DELETE_ segue o mesmo processo, mas retornar apenas o _status_. Abaixo um exemplo de uma requisição para buscar todos currículos.
 
 ![Postman FindAll Function](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/postman-all.png)
 
@@ -555,9 +548,7 @@ Em requisições do tipo _POST_ ou _PUT_ o processo será semelhante ao que foi 
 selecionar a opção _Body_ no menu opções e logo em seguida selecionar o tipo de texto _raw_ de depois o formato de envio
 que no caso será JSON. Com isso será possível escrever a requisição na caixa de texto abaixo do menu de opções e ao
 enviar a requisição irá retornar uma resposta em JSON, em requisições do tipo _PUT_ será preciso incluir o id entre os
-atributos.
-
-**Resiquição da função de buscar todos os currículos `save`.**
+atributos. Abaixo um exemplo de uma requisição para salvar um novo currículo.
 
 ![Postman Save Function](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/postman-save.png)
 
