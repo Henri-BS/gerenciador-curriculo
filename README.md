@@ -1,6 +1,6 @@
 # Gerenciador de Currículo
 
-> Programação Web para Back-end
+> Programação Web para Backend
 
 ##  Sumário
 
@@ -11,6 +11,7 @@
   * [IntelliJ](#intellij)
   * [Estrutura do Backend](#estrutura-do-backend)
   * [ReactJs](#reactjs)
+  * [CSS](#css)
   * [Estrutura do Frontend](#estrutura-do-frontend)
 - [Programação Backend](#programacao-backend)
   * [Classes e Interfaces](#classes-e-interfaces)
@@ -26,16 +27,31 @@
     - [Save](#save)
     - [Update](#update)
     - [Delete](#delete)
+ * [H2 Database e Postman](#h2-database-e-postman)
+    - [Manipulação de Dados com H2](#manipulacao-de-dados-com-h2)
+    - [Teste de Requisições com Postman](#teste-de-requisicoes-com-postman)
+- [Programação Frontend](#programacao-frontend)
+  * [Requests](#requests)
+  * [Types](#types)
+  * [Componentes](#componetes)
+    - [Card](#card)
+    - [Form](#form)
+    - [Pagination](#pagination)
+  * [Páginas e Rotas](#paginas-e-rotas)
+    - [List](#list)
+    - [Profile](#profile)
+    - [Routes](#routes)
+- [Resultados](#resultados)    
 
 ## Introdução
 
 Este projeto representa uma atividade complementar para a disciplina Programação Web para Backend do curso de
-pós-graduação em Desenvolvimento Web para Back-End. A atividade consiste na elaboração de um projeto web para o
-gerenciamento de currículos utilizando Java com a Spring Framework para a construção do Back-End, além disso também será
-feita a integração com TypeScript e ReactJs para a criação do Front-End, o projeto também deverá incluir outros
+pós-graduação em Desenvolvimento Web para Backend. A atividade consiste na elaboração de um projeto web para o
+gerenciamento de currículos utilizando Java com a Spring Framework para a construção do Backend, além disso também será
+feita a integração com TypeScript e ReactJs para a criação do Frontend, o projeto também deverá incluir outros
 conceitos, práticas e tecnologias que foram estudadas ao longo da disciplina. Ao final do desenvolvimento a aplicação
-deverá ser capaz de receber dados de um banco de dados em memória para   
-criar, alterar, deletar, listar e buscar por currículos e suas respectivas seções de informação.
+deverá ser capaz de receber dados de um banco de dados em memória e transmitir estes dados ao Frontend através de reqisições possibilitando a   
+criação, alteração, deleção, listagem e busca por currículos e suas respectivas seções de conteúdo.
 
 ## Ferramentas e Bibliotecas
 
@@ -100,19 +116,19 @@ spring.jpa.properties.hibernate.format_sql=true
 Além disso, também haverá um arquivo nomeado _import.sql_ que irá conter os _scripts_ que serão usados no banco.
 
 Por fim a organização das pastas será baseada no padrão MVC juntamente com os padrões Repository e DTO, com isso as
-seguintes camadas serão estabelecidas: entities, repositories, dto, controllers e services que contém 2 sub-camadas
-chamadas interf e impl. Além disso será criada uma camada chamada config que conterá as configurações do Spring
-Security. A figura abaixo apresenta o resultado final da estrutura de pastas do Back-end.
+seguintes camadas serão estabelecidas: _entities, repositories, dto, controllers e services_ que contém 2 sub-camadas
+chamadas _interf e impl_. Além disso será criada uma camada chamada config que conterá as configurações do Spring
+Security. A figura abaixo apresenta o resultado final da estrutura de pastas do Backend.
 
-![Back-end Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/backend-folders.png)
+![Backend Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/backend-folders.png)
 
 ### ReactJs
 
-Para que a aplicação TypeScript seja executada no Front-end será preciso realizar o download
+Para que a aplicação TypeScript seja executada no Frontend será preciso realizar o download
 do [Node](https://nodejs.org/en), após o download é possível ver em um terminal a versão baixada através do comando
 ```node -v```, com isso já é possível fazer comandos em um terminal no diretório do projeto em uma pasta nomeada '
 frontend' que será a aplicação React, o terminal usado será o [Git Bash](https://git-scm.com/download/win). A tabela a
-seguir apresenta a sequência de comandos para criar o projeto React e para instalar as bibliotecas do Front-end.
+seguir apresenta a sequência de comandos para criar o projeto React e para instalar as bibliotecas do Frontend.
 
 | Ação                                               | Comando                                              |
 |----------------------------------------------------|------------------------------------------------------|
@@ -131,7 +147,7 @@ tsconfig.json será adicionada a propriedade ``"baseUrl": "./src"`` para definir
 pastas serão inclusas como: assests, components, pages, utils, types, routes e entre outras; bem como alguns arquivos
 serão adicionados, alterados ou deletados. A estrutura final da pasta _frontend_ pode ser vista na figura abaixo.
 
-![Front-end Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/frontend-folders.png)
+![Frontend Folders](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/frontend-folders.png)
 
 
 ## Programação Backend
@@ -502,63 +518,381 @@ diretamente na solicitação, a função também irá chamar o método da interf
 
 ### H2 Database e Postman
 
-- #### Instruções SQL no H2
+- #### Manipulação de dados com H2
 
 Através do banco de dados H2 incorporado no projeto, será possível visualizar e manipular dados presentes nos _scripts_
 do arquivo `application-test.properties`, assim como também será possível utilizar a interface gráfica do banco. Para
-ter acesso ao H2 será preciso exeutar a aplicação através do botaão _Run_ e logo em seguida acessar no navegador a
-url: `http://localhost:8080/h2-console` e nesta página será solicitado os dados definidos no arquivo do H2 para poder
-realizar o login.
+ter acesso ao H2 será preciso executar a aplicação através do botão _Run_ e logo em seguida acessar no navegador a
+url: `http://localhost:8080/h2-console` referente a página de login e nesta página serão solicitado os dados de login definidos no arquivo do H2 como pode ser visto na figura abaixo.
 
-**Tela de Login do H2.**
+![H2 Login](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2_login.png)
 
-![H2 Login](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2-login.png)
-
-Com a conexão estabelecida, a página será redirecionada para a interface principal do H2 que é constituida pelas
+Com a conexão estabelecida, a página será redirecionada para a interface principal do H2 que é constituída pelas
 informações de esquema do banco de dados que ficam no lado esquerdo, a caixa de texto para as instruções ao centro e
 logo abaixo a área dos resultados. Com isso banco H2 poderá ser utilizado para receber instruções SQL e apresentar os
-resultados, para fazer uma instrução do tipo `SELECT` para visulizar os registros de uma tabela, por exemplo, pode-se
-escrever a instrução `SELECT * FROM tb_name;` na caixa de texto ou simplemente clicar numa tabela específica na aba de
+resultados, para fazer uma instrução do tipo `SELECT` e visualizar os registros de uma tabela como mostrado na próxima figura, pode-se
+escrever a instrução `SELECT * FROM tb_name;` na caixa de texto ou simplesmente clicar numa tabela específica na aba de
 esquemas.
 
-**Instrução para buscar todos os currículos no H2.**
+![H2 Select](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2_select.png)
 
-![H2 Select](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2-select.png)
+O h2 também permite a criação de um novo registro, que poderá ser feita através do comando `INSERT INTO`, ao inserir um
+novo registro o banco de dados informará sobre a condição da inserção com uma mensagem.
 
-O h2 também permite a criação de um novo registro, que poderá ser feita através do comando _INSERT INTO_, ao inserir um
-novo registro o banco de dados informará sobre a condição da inserção logo abaixo.
-
-**Instrução para inserir um novo currículo no H2.**
-
-![H2 Insert](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2-insert.png)
+![H2 Insert](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/h2_insert.png)
 
 - #### Teste de Requisições
 
 A plaraforma de API Postman poderá ser usada para de testar as requisições da aplicação, na plataforma poderá ser feita
-a criação de _collectitons_ que irão agregar as requisições que poderão ser organizadas em pastas
-
-**Coleção de requisições no Postman.**
+a criação de _collectitons_ que irão agregar as requisições que poderão ser organizadas em pastas.
 
 ![Postman Folder](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/postman-folder.png)
 
 Para testar uma requisição será necessário selecionar o tipo e adicionar a URL, numa requisição do tipo _GET_ deve-se
-adicionar a URL que corresponde a operação criada no backend e mapeada através da camada de _Controller_, ou seja,
+adicionar a URL que corresponde a operação criada no Backend e mapeada através da camada de _Controller_, ou seja,
 deverá ser adicionado o valor atributo _name_ contida na anotação do tipo _Mapping_ da função, caso necessário também
 pode-se incluir parâmetros de busca na url. Feito isso, o postman retornará o resultado em formato JSON, uma requisição
-do tipo _DELETE_ segue o mesmo processo, mas retornar apenas o _status_.
-
-**Resiquição da função de buscar todos os currículos `findAll`.**
+do tipo _DELETE_ segue o mesmo processo, mas retornar apenas o _status_. Abaixo um exemplo de uma requisição para buscar todos currículos.
 
 ![Postman FindAll Function](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/postman-all.png)
 
-Em requisições do tipo _POST_ ou _PUT_ o processo será semelhante ao que foi visto anteriormente, pórem será preciso
+Em requisições do tipo _POST_ ou _PUT_ o processo será semelhante ao que foi visto anteriormente, porem será preciso
 selecionar a opção _Body_ no menu opções e logo em seguida selecionar o tipo de texto _raw_ de depois o formato de envio
 que no caso será JSON. Com isso será possível escrever a requisição na caixa de texto abaixo do menu de opções e ao
 enviar a requisição irá retornar uma resposta em JSON, em requisições do tipo _PUT_ será preciso incluir o id entre os
-atributos.
-
-**Resiquição da função de buscar todos os currículos `save`.**
+atributos. Abaixo um exemplo de uma requisição para salvar um novo currículo.
 
 ![Postman Save Function](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/postman-save.png)
 
----
+## Programação Frontend
+
+### [Requests](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/utils/requests.tsx)
+
+Para que a camada de Frontend possa encontrar a camada de Backend é necessário criar um arquivo que será nomeado de 
+_requests.ts_, neste arquivo irá conter o caminho para o Backend que se chamará `BASE_URL` que poderá ser apenas a url do
+localhost ou um operador de coalescência nula para indicar outra localidade de acesso ao Backend como visto no código
+abaixo.  
+`export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? "http://localhost:8080";`
+
+### [Types](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/types)
+
+Com a `BASE_URL` já criada, as _types_ poderão ser implementadas no TypeScript para definir os tipos de dados contidos
+nas requisições, as _types_ poderão representar objetos, coleções ou parêmtros e irão conter os atributos
+correspondentes aos do Backend como pode ser visto no exemplo abaixo das _types_ relacionadas ao currículo.
+
+```
+export type Cv = {
+    id: number;
+    name: string;
+    jobTitle: string;
+    description: string;
+    image: string;
+    phone: string;
+    location: string;
+    email: string;
+}
+```
+
+<br/>
+
+### Componentes
+
+- #### [Card](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/components/cards)
+
+O componente _card_ será usado como um "cartão" que irá conter informações sobre determinado conteúdo, neste projeto
+será usado o modelo de _card_ do Bootstrap, assim como alguns cards também serão personalizados através do arquivo
+_card.css_. Os componentes de _cards_ também poderão ter _types_ para receber os dados necessários como pode ser visto
+no exemplo abaixo.
+
+```
+export function CvCard({ cv }: CvProps) {
+
+    return (
+        <>
+            <Link to={`/cv/${cv.id}`} className="text-decoration-none">
+                <div className="card-md-container shadow-purple">
+                    <nav className="card-md-title">
+                        <h3>{cv.name}</h3>
+                        <img src={cv.image} alt="cv-image" />
+                    </nav>                    
+                    <p className="card-md-content">{cv.jobTitle}</p>
+                    <ul className="card-md-list">
+                        <li className="card-md-item "><i className="fa fa-phone" />
+                            <p className="card-md-content">{cv.phone}</p>
+                        </li>
+                        <li className="card-md-item "><i className="fa fa-envelope" />
+                            <p className="card-md-content">{cv.email}</p>
+                        </li>
+                        <li className="card-md-item"><i className="fa fa-map-marker" />
+                            <p className="card-md-content">{cv.location}</p>
+                        </li>
+                    </ul>
+                </div>
+            </Link>
+        </>
+    );
+}
+```
+
+<br/>
+
+- #### [Form](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/components/forms)
+
+Para a implementação dos formulários, deverá ser acrescentada as configurações da biblioteca Axios no componente _form_,
+na função do componente será preciso cria uma _Arrow Function_ chamada `handleSubmit` que será responsável por criar um
+evento de submissão no formulário, dentro desta função deverá ser incluso constantes referente a cada atributo contido
+na _type_ que será referenciada no formulário, além disso, também deve haver uma _const_ do tipo AxiosRequestConfig que
+irá conter as propriedades necessárias para uma requisição sendo elas: **baseUrl** que terá a url configurada no
+arquivo _requests.ts_, **method** que definirá o método HTTP usado, **url** que será o caminho da função mapeada na
+camada _Controller_ e **data** que irá corresponder aos dados presentes na _request_. E por fim um será feita uma
+chamada do método _axios_ para receber as configurações definidas anteriormente, dentro deste método é possível inserir
+uma constante para navegação de páginas da biblioteca React Routes como pode ser visto neste exemplo de um formulário
+para a adição de um novo currículo.
+
+```
+ export function CvAddForm() {
+    const navigate = useNavigate();
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        const name = (event.target as any).name.value;
+        const jobTitle = (event.target as any).jobTitle.value;
+
+        const config: AxiosRequestConfig = {
+            baseURL: BASE_URL,
+            method: "POST",
+            url: "/cv/save",
+            data: {
+                name: name,
+                jobTitle: jobTitle
+            }
+        };
+        axios(config).then(response => {
+            navigate("/");
+        })
+    }
+     return (
+        <form className=" form-container m-0 row" onSubmit={handleSubmit}>
+
+            <div className="form-group col-6">
+                <label htmlFor="name">Nome Completo: </label>
+                <input type="text" className="form-control" id="name" />
+            </div>
+
+            <div className="form-group col-6">
+                    <label htmlFor="jobTitle">Cargo: </label>
+                    <input type="text" className="form-control" id="jobTitle"/>
+                </div>
+
+            <div className="modal-footer">
+                <button type="button" className="text-close" data-bs-dismiss="modal">cancelar</button>
+                <button type="submit" className="btn btn-success">Adicionar</button>
+            </div>
+        </form>
+    );
+ }
+```
+<br/>
+
+- #### [Pagination](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/components/shared/Pagination.tsx)
+
+O componente de paginação será criado na pasta de componentes _shared_ com o nome de _pagination.tsx_ e este componente
+será responsável pela criação das propriedades de paginação utilizando o Bootstrap. A função terá de receber uma _type_
+um tipo que contenha no seu atributo _content_ as listas que serão paginadas e também terá um atributo de mudança entre
+páginas, o _pagination_ será composto por um botão para a página anterior, um botão para a próxima e também irá mostrar
+o número da atual como pode ser visto no código abaixo.
+
+```
+type PageProps = {
+    page: Page;
+    onPageChange: Function;
+}
+function Pagination({ page, onPageChange }: PageProps) {
+
+    return (
+        <nav>
+            <ul className="pagination">
+                <li className={`page-item ${page.first ? `disable` : ''}`}>
+                    <button className="page-link" onClick={() => onPageChange(page.number - 1)} aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </button>
+                </li>
+
+                <li className={"page-item"}>
+                    <span className="page-link no-hover">{page.number + 1} de {page.totalPages} </span>
+                    </li>
+
+                <li className={`page-item ${page.last ? `disabled` : ''}`}>
+                    <button className="page-link" onClick={() => onPageChange(page.number + 1)} aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    );
+}
+export default Pagination;
+```
+
+<br/>
+
+### Páginas e Rotas
+
+- #### [List](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/pages)
+
+Para a criação de uma lista paginada com um mecanismo de busca deverá ser feita a inclusão três constantes com o `useState`, a primeira irá representar o número das páginas e a segunda constante representará o texto do parâmetro de busca e a terceira será dedicada a _type_ da lista. Também deverá ser criado um `useEffect` para permitir que o componente execute os efeitos necessários para a lista e para isso será necessário incluir um método `axios.get().then()` que receberá a `BASE_URL` sucedida da url correspondente a função estabelecida na camada de _Controller_, também deverão ser adicionados os parâmetros `pageNumber` e `value`, também será criada uma _const_ chamada `handlePageChange` para definir as mudanças da página. No `return()` da função haverá a inclusão do botão para
+adicionar um novo elemento na lista, o componente com os botões de paginação, o mecanismo de busca, a lista paginada e o _modal_ do Bootstrap referente a adição de um novo conteúdo.
+
+```
+function CvList() {
+    const [value, setValue] = useState("");
+    const [pageNumber, setPageNumber] = useState(0);
+    const handlePageChange = (newPageNumber: number) => {
+        setPageNumber(newPageNumber);
+    }
+
+    const [cvPage, setCvPage] = useState<CvPage>({
+        content: [],
+        number: 0
+    });
+    useEffect(() => {
+        axios.get(`${BASE_URL}/cv/page?page=${pageNumber}&name=${value}&size=12`)
+            .then((response) => {
+                setCvPage(response.data);
+            });
+    }, [pageNumber, value]);
+
+    return (
+        <> 
+        <div className="container">
+                <nav className="navbar row m-0">
+                    <div className="col-12 col-md-4 col-xl-4 mb-2" >
+                        <button data-bs-target="#addCvModal" data-bs-toggle="modal" className="option-link"><i className="fa fa-plus" /> Novo Currículo</button>
+                    </div>
+                    <div className="col-12 col-md-4 col-xl-3 mt-2" >
+                        <Pagination page={cvPage} onPageChange={handlePageChange} />
+                    </div>
+                    <div className="col-12 col-md-4 col-xl-3 mb-2" >
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="value"
+                                value={value}
+                                onChange={(e) => setValue(e.target.value)}
+                                className="form-control"
+                                placeholder="buscar currículos..."
+                            />
+                        </div>
+                    </div>
+                </nav >
+        
+                <div className="row">
+                    {cvPage.content?.filter((x) =>
+                        x.name.toUpperCase().includes(value.toLocaleUpperCase()))
+                        .map(x => (
+                            <div key={x.id} className="col-12 col-md-6 col-xl-4 mb-3">
+                                <CvCard cv={x} />
+                            </div>
+                        ))}
+                </div>
+            </div >
+            
+            <div className="modal fade" id="addCvModal" role={"dialog"}>
+                <div className="modal-dialog" role={"document"}>
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <label className="modal-title">Adicionar um novo currículo</label>
+                            <button className="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i className="fa fa-times" /></span>
+                            </button>
+                        </div>
+                        <div className="modal-body"><CvAddForm /></div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+export default CvList;
+```
+
+<br/>
+
+- #### [Profile](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/pages/CvProfile.tsx)
+
+O componente Profile irá agregar outros componentes para criar um perfil específico, os componentes também irão possuir um parâmetro de uma constante com o `useParams` do React Routes para indicar o _id_ referente ao objeto do componente como visto a seguir no código do perfil de um currículo.
+
+```
+export function CvProfile() {
+    const params = useParams();
+
+    return (
+        <>
+            <div className="container">
+                <CvProfileCard id={`${params.cvId}`} />
+                <EducationListByCv id={`${params.cvId}`} />
+                <ExperienceListByCv id={`${params.cvId}`} />
+                <SectionListByCv id={`${params.cvId}`} />
+            </div>
+        </>
+    );
+}
+```
+
+<br/>
+
+- #### [Routes](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/frontend/src/routes/PageRoutes.tsx)
+
+A interação entre as páginas poderá ser feita através das configurações com o React Routes presentes no arquivo _
+PageRoutes.tsx_, as _tags_ `<BrowserRoutes>` e `<Routes>` irão agregar as rotas e cada uma estará contida na 
+_tag_ `<Route>` do React Routes. As _tags_ possuem o atributo `path` para adicionar a url e o atributo `element` que
+conterá o componente. Também é possível ter uma sub-rota interna com um _path_ relacionado a um _id_.
+
+```
+function PageRoutes() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<CvList />} />
+                <Route path="/cv" >
+                    <Route path=":cvId" element={<CvProfile />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
+}
+export default PageRoutes;
+```
+
+<br/>
+
+## Resultados
+Os resultados das funcionalidades do projeto poderão ser vistos logo abaixo
+
+**Página inicial**
+
+![Home](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/home.png)
+
+**Adição de um novo currículo**
+
+![Home](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-cv.png)
+
+
+**Perfil de um novo currículo**
+
+![Add Cv](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/profile-void.png)
+
+
+**Adição de uma nova experiência de trabalho e de uma nova formação acadêmica em um currículo**
+
+![Add Experience](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-experience.png)
+![Add Education](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-education.png)
+
+**Adição de uma nova seção e um novo item nesta seção de um currículo**
+
+![Add Section](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-section.png)
+![New Section](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/new-section.png)
+![Add Item](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-item.png)
+
+**Página do perfil currículo contendo items em todas as seções**
+
+![Profile Full](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/profile-full.png)
+
