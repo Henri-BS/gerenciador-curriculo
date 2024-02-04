@@ -87,7 +87,7 @@ conforme mostrado na figura.
 
 ![IntelliJ Run](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/intellij-run.png)
 
-### Estrutura do Backend
+### [Estrutura do Backend](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend)
 Alguns arquivos básicos serão necessários para o funcionamento do backend, o primeiro deles é o _aplication.properties_
 que ficará responsável por gerenciar os tipos de perfis para o acesso de dados, o código do arquivo pode ser visto
 abaixo indicando que o perfil de 'test' está ativo.
@@ -140,14 +140,14 @@ seguir apresenta a sequência de comandos para criar o projeto React e para inst
 | Adiciona bootstrap como biblioteca de estilização  | yarn add bootstrap                                   |
 | Adiciona moment como biblioteca de datas           | yarn add moment                                      |
 
-### CSS
+### [CSS](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/frontend/src/assets/css)
 Os arquivos CSS do projeto ficarão na pasta _css_ localizados em src > assets > css; e todos os arquivos deverão ter um _import_ no arquivo _index.tsx_, este mesmo arquivo também deverá conter os seguintes _imports_ do Bootstrap:
 ```
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/js/src/modal';
 ```    
 
-### Estrutura do Frontend
+### [Estrutura do Frontend](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/frontend)
 
 Assim como foi feita a organização na pasta _backend_, o mesmo processo será feito na pasta _frontend_, na pasta
 tsconfig.json será adicionada a propriedade ``"baseUrl": "./src"`` para definir a base da url para os _imports_, algumas
