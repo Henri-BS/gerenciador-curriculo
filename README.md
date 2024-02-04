@@ -140,6 +140,13 @@ seguir apresenta a sequência de comandos para criar o projeto React e para inst
 | Adiciona bootstrap como biblioteca de estilização  | yarn add bootstrap                                   |
 | Adiciona moment como biblioteca de datas           | yarn add moment                                      |
 
+### CSS
+Os arquivos CSS do projeto ficarão na pasta _css_ localizados em src > assets > css; e todos os arquivos deverão ter um _import_ no arquivo _index.tsx_, este mesmo arquivo também deverá conter os seguintes _imports_ do Bootstrap:
+```
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/js/src/modal';
+```    
+
 ### Estrutura do Frontend
 
 Assim como foi feita a organização na pasta _backend_, o mesmo processo será feito na pasta _frontend_, na pasta
