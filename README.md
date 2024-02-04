@@ -869,7 +869,7 @@ Os resultados das funcionalidades do projeto poderão ser vistos logo abaixo
 
 **Página inicial**
 
-![Home](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/home.png)
+![Home](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/home.jpeg)
 
 **Adição de um novo currículo**
 
@@ -878,7 +878,7 @@ Os resultados das funcionalidades do projeto poderão ser vistos logo abaixo
 
 **Perfil de um novo currículo**
 
-![Add Cv](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/profile-void.png)
+![Profile Void](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/profile-void.jpeg)
 
 
 **Adição de uma nova experiência de trabalho e de uma nova formação acadêmica em um currículo**
@@ -886,13 +886,15 @@ Os resultados das funcionalidades do projeto poderão ser vistos logo abaixo
 ![Add Experience](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-experience.png)
 ![Add Education](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-education.png)
 
-**Adição de uma nova seção e um novo item nesta seção de um currículo**
+**Adição de uma nova seção em um currículo**
 
 ![Add Section](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-section.png)
 ![New Section](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/new-section.png)
+
+**Adição de um novo item em uma seção**
 ![Add Item](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/add-item.png)
 
 **Página do perfil currículo contendo items em todas as seções**
 
-![Profile Full](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/profile-full.png)
+![Profile Full](https://github.com/Henri-BS/gerenciador-curriculo/blob/main/images/profile-full.jpeg)
 
