@@ -5,7 +5,7 @@
 ##  Sumário
 
 - [Introdução](#introdução)
-- [Ferramentas e Bibliotecas](#ferramentasEBibliotecas)
+- [Ferramentas e Bibliotecas](#ferramentas-e-bibliotecas)
 - [Criação e Configuração do Projeto](#criação-e-configuração-do-projeto)
   - [Spring Initializr](#spring-initializr)
   - [IntelliJ](#intellij)
@@ -28,8 +28,8 @@
     - [Update](#update)
     - [Delete](#delete)
  - [H2 Database e Postman](#h2-database-e-postman)
-    - [Manipulação de Dados com H2](#manipulação-de-dados-com-h2)
-    - [Teste de Requisições com Postman](#teste-de-requisições-com-postman)
+    - [Manipulação de Dados](#manipulação-de-dados)
+    - [Teste de Requisições](#teste-de-requisições)
 - [Programação Frontend](#programação-frontend)
   - [Requests](#requests)
   - [Types](#types)
@@ -525,7 +525,7 @@ diretamente na solicitação, a função também irá chamar o método da interf
 
 ### H2 Database e Postman
 
-- #### Manipulação de dados com H2
+- #### Manipulação de dados
 
 Através do banco de dados H2 incorporado no projeto, será possível visualizar e manipular dados presentes nos _scripts_
 do arquivo `application-test.properties`, assim como também será possível utilizar a interface gráfica do banco. Para
