@@ -5,7 +5,7 @@
 ##  Sumário
 
 - [Introdução](#introdução)
-- [Ferramentas e Bibliotecas](#ferramentas-e-bibliotecas)
+- [Ferramentas e Bibliotecas](#FerramentasEBibliotecas)
 - [Criação e Configuração do Projeto](#criação-e-configuração-do-projeto)
   - [Spring Initializr](#spring-initializr)
   - [IntelliJ](#intellij)
