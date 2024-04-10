@@ -251,7 +251,7 @@ public interface CvRepository extends JpaRepository<Cv, Long>{
 
 <br/>
 
-- #### [Service](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/service/interf) e [ServiceImpl](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/services/impl)
+- #### [Service](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/services/interf) e [ServiceImpl](https://github.com/Henri-BS/gerenciador-curriculo/tree/main/backend/src/main/java/com/altercode/gerenciadorcurriculo/services/impl)
 
 A camada Service será reapresentada tanto por classes quanto por interfaces, a interface Service permitirá que os
 métodos relacionados a lógica de negócios sejam declarados.
